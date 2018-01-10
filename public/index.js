@@ -1,14 +1,4 @@
-const sayHello = () => {
-  console.log("say hello");
-}
 
-sayHello()
-
-const sayhi = () => {
-  console.log("say hi to me now!");
-}
-
-sayhi();
 
 const userButtons = document.getElementsByClassName("user__buttons")[0];
 const loginButton = document.getElementsByClassName("home__buttons__login")[0];
