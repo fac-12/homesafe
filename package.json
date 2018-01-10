@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel index.js -d build",
-    "babelWatch": "babel index.js --watch --out-file build/index.js",
+    "babel": "babel ./public/index.js -d build",
+    "babelWatch": "babel ./public/index.js --watch --out-file build/index.js",
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
