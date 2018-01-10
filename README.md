@@ -1,4 +1,5 @@
 # homesafe
+[![Build Status](https://travis-ci.org/fac-12/homesafe.svg?branch=master)](https://travis-ci.org/fac-12/homesafe)
 
 By Fatimat, Dragomir, Kitty and Sophie.
 
