@@ -4,7 +4,7 @@
   "description": "A web application for parents to notify schools if someone other than the usual guardian will be picking the child up from school",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test node tests/testdb.js | tap-spec",
     "babel": "babel index.js -d build",
     "babelWatch": "babel index.js --watch --out-file build/index.js",
     "start": "node ./src/index.js",
