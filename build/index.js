@@ -7,7 +7,6 @@ console.log(userButtons);
 console.log(loginButton);
 
 loginButton.addEventListener("click", function () {
-  console.log("button has been clicked");
   userButtons.classList.add("showForm");
   loginButton.classList.add("hideForm");
 });
