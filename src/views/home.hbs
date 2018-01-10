@@ -2,18 +2,7 @@
   <h1> Welcome to homesafe</h1>
 </header>
 
-<section class="home">
-  <div class="home__buttons">
-    <button class="home__buttons__login" type="button" name="login__button">Login</button>
-    <p class="home__buttons__register">Don't have an account?</p><a href="#">register here</a>
-  </div>
-
-  <div class="user__buttons hideForm">
-    <p class="user__buttons__text">Are you a...</p>
-    <!-- <button class="user__buttons__parent" type="button" name="button">School</button> -->
-    <a href="/school_login">school</a>
-    <button class="user__buttons__school" type="button" name="button">Parent</button>
-    <button class="user__buttons__back" type="button" name="button">Go back</button>
-  </div>
-
-</section>
+<form class="home" action="/user_select" method="get">
+  <label for="login_submit" class=""><input type="submit" value="Login" id="login_submit" class="home_user_login"> </label>
+  <p class="home__buttons__register">Don't have an account?</p><a href="#">register here</a>
+</form>
