@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const routes = require('./routes/routes.js');
 
 const app = express();
 
@@ -19,9 +20,5 @@ app.engine(
 app.set('port', process.env.PORT || 3000);
 app.use("/public", express.static(path.join(__dirname, '..', 'public')));
 app.use("/build", express.static(path.join(__dirname, '..', 'build')));
-
-app.get('/', (req, res)=>{
-  res.render("home");
-})
-
+app.use(routes);
 module.exports = app;
