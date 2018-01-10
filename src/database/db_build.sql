@@ -56,11 +56,11 @@ CREATE TABLE scheduled_pickups (
 INSERT INTO parents (first_name, last_name, email, address, postcode, phone, password) VALUES ('Kitty', 'Allen', 'k@a.com', '27 Soudan St Thirroul NSW', 'E83AS', '07490388097', 'apple');
 INSERT INTO parents (first_name, last_name, email, address, postcode, phone, password) VALUES ('Sophie', 'Levens', 's@l.com', '123 Fake St', 'SW166AP', '07422388097', 'watermelon');
 
-INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 'k@a.com'), (SELECT id FROM schools WHERE email = 'k.allen91@gmail.com'), 'Frankie', 'Allen', 3, '1991-03-06');
-INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 's@l.com'), (SELECT id FROM schools WHERE email = 'school@school.com'), 'Pebbles', 'Levens', 3, '1990-01-01');
-
 INSERT INTO schools (name, email, password) VALUES ('St Andrews', 'k.allen91@gmail.com', 'cucumber');
 INSERT INTO schools (name, email, password) VALUES ('Portway', 'school@school.com', 'pepper');
+
+INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 'k@a.com'), (SELECT id FROM schools WHERE email = 'k.allen91@gmail.com'), 'Frankie', 'Allen', 3, '1991-03-06');
+INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 's@l.com'), (SELECT id FROM schools WHERE email = 'school@school.com'), 'Pebbles', 'Levens', 3, '1990-01-01');
 
 INSERT INTO designated_adults (parent_id, first_name, last_name, email, address, postcode, phone) VALUES ((SELECT id FROM parents WHERE email = 'k@a.com'), 'Fatimat', 'Gbaja', 'f@g.com', '99 Fake St', 'E82AS', '07342733849');
 INSERT INTO designated_adults (parent_id, first_name, last_name, email, address, postcode, phone) VALUES ((SELECT id FROM parents WHERE email = 's@l.com'), 'Dragomir', 'Ceban', 'd@c.com', '101 Fake St', 'SE62AS', '07129292764');
