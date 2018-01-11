@@ -3,5 +3,11 @@ node_js:
   - "node"
 services:
   - postgresql
+notifications:
+  email: false
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database travic_ci_test;' -U postgres
+script:
+  - npm test
+addons:
+  postgresql: "9.5"
