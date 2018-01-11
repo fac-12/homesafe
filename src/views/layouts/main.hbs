@@ -8,8 +8,24 @@
 </head>
 
 <body>
+  <section>
+    {{#if name}}
+    <p>{{name}}</p>
+    {{/if}}
+  </section>
+
   {{{body}}}
+
+  <section>
+    {{#if success}}
+    <p>{{success}}</p>
+    {{else if error_msg}}
+    <p>{{error_msg}}</p>
+    {{/if}}
+  </section>
+
   <script type="text/javascript" src="/build/public/index.js"></script>
 </body>
+
 
 </html>

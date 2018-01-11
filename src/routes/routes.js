@@ -15,8 +15,6 @@ router.get('/parent_login_page', (req, res)=>{
   res.render('parent_login')
 })
 
-
-
 router.get('/user_select', (req, res)=>{
   res.render('user_select.hbs')
 })
@@ -29,6 +27,7 @@ router.get('/parent_registration_form', (req, res)=>{
 router.get('/parent_profile', (req, res)=>{
   res.render('parent_profile')
 })
+
 router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post)
 
