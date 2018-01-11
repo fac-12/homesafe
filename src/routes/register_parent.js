@@ -10,7 +10,7 @@ exports.post = (req, res) => {
   check_parent(parent_details.email).then((queryRes) => {
     return new Promise((resolve, reject) => {
       if (queryRes[0].case === true) {
-        reject(new Error("user already exists, please login"))
+        reject(new Error("User already exists, please login"))
 
       } else {
         resolve()
@@ -34,7 +34,21 @@ exports.post = (req, res) => {
     parent_details.password = bcryptres;
   }).then(()=>{
     return add_parent(parent_details.first_name, parent_details.last_name, parent_details.email, parent_details.password, parent_details.address, parent_details.postcode, parent_details.phone)
-  }).then(()=>{
+  }).then((queryRes)=>{
+    console.log("id: ",queryRes);
+    req.session.loggedin = true;
+   req.session.id = queryRes[0].id;
+    console.log(req.session);
     res.redirect('/parent_profile')
+  }).catch((err)=>{
+    if(err.message === "User already exists, please login"){
+      req.flash("error_msg", err.message);
+      res.redirect('/parent_registration_form')
+    } else if (err.message === "Please make sure you have entered a valid email.") {
+      req.flash("error_msg", err.message)
+      res.redirect('/parent_registration_form')
+    } else {
+      throw err;
+    }
   })
 }
