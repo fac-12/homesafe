@@ -5,3 +5,7 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database testing_db;' -U postgres
+script
+  - npm test
+addons:
+  postgresql: "9.5"
