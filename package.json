@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test node tests/testdb.js | tap-spec",
-    "babel": "babel ./public/index.js -d build",
-    "babelWatch": "babel-watch ./public/index.js",
+    "babel": "babel -w ./public/index.js -d build",
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
