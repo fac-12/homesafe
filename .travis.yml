@@ -6,7 +6,7 @@ services:
 notifications:
   email: false
 before_script:
-  - psql -c 'create database testing_db;' -U postgres
+  - psql -c 'create database travic_ci_test;' -U postgres
 script:
   - npm test
 addons:
