@@ -9,30 +9,14 @@ test('tape is working', (t) => {
   t.end();
 })
 
-// test('check parent exists promise query', (t) => {
-//     runDbBuild().then(() => {
-//       let email = 'k@a.com';
-//       check_parent(email)
-//     }).then((queryRes) => {
-//       t.equal(queryRes[0].case, true, 'If parent exists then check_parent should return true- promise');
-//       t.end();
-//     }).catch((err) => {
-//       throw err;
-//     })
-//   })
-
-test('check parent exists query', (t) => {
-  runDbBuild(function(err, res) {
-    let email = 'k@a.com';
-    check_parent(email, (err, res) => {
-      if(err) console.log(err);
-      t.equal(res[0].case, true, 'If parent exists then check_parent should return true');
-    })
-    let email2 ='fjdfhk@fsjfl.com';
-    check_parent(email2, (err, res) => {
-      if(err) console.log( err);
-        t.equal(res[0].case, false, 'If parent does not exist then check_parent should return false');
-        t.end();
+test('check parent exists promise query', (t) => {
+    runDbBuild().then(() => {
+      let email = 'k@a.com';
+      return check_parent(email)
+    }).then((queryRes) => {
+      t.equal(queryRes[0].case, true, 'If parent exists then check_parent should return true- promise');
+      t.end();
+    }).catch((err) => {
+      throw err;
     })
   })
-})

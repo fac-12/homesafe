@@ -8,7 +8,7 @@ const build = sql('./db_build.sql');
 
 const runDbBuild = () => {
   return db.any(build)
-    .then(res => console.log('res', res))
+    .then(res =>  res)
     .catch(e => console.error('error', e));
 };
 
