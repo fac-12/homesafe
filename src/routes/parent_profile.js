@@ -53,30 +53,3 @@ exports.post = (req, res) => {
       })
 
 
-
-      // return new Promise((resolve,reject) => {
-      //   bcrypt.compare(parent_details.parent_password_login)
-      // })
-
-}
-
-
-
-//   }).then(()=>{
-//     return new Promise((resolve, reject)=>{
-//       bcryptjs.hash(parent_details.password, 10, (err, bcryptres)=>{
-//         if(err){
-//           reject(new Error("bcrypt error"))
-//         } else{
-//           resolve(bcryptres)
-//         }
-//       })
-//     })
-//   }).then((bcryptres)=>{
-//     parent_details.password = bcryptres;
-//   }).then(()=>{
-//     return add_parent(parent_details.first_name, parent_details.last_name, parent_details.email, parent_details.password, parent_details.address, parent_details.postcode, parent_details.phone)
-//   }).then(()=>{
-//     res.redirect('/parent_profile')
-//   })
-// }
