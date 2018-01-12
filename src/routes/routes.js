@@ -5,6 +5,7 @@ const login_parent = require('./parent_profile');
 const add_designated_adult = require('./add_designated_adult');
 const error = require('./error');
 
+const add_child = require('./add_child')
 
 router.get('/', (req, res)=>{
   res.render("home");
@@ -43,4 +44,6 @@ router.post('/add_da', add_designated_adult.post)
 
 router.use(error.client);
 router.use(error.server);
+
+router.post('/add__child', add_child.post)
 module.exports = router;
