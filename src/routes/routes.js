@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
 const login_parent = require('./parent_profile');
-
+const add_child = require('./add_child')
 
 router.get('/', (req, res)=>{
   res.render("home");
@@ -34,4 +34,6 @@ router.post('/register_parent', register_parent.post)
 router.get('/add_child', (req, res)=>{
   res.render('add_child')
 })
+
+router.post('/add__child', add_child.post)
 module.exports = router;

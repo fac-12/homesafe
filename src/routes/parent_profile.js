@@ -21,11 +21,14 @@ exports.post = (req, res) => {
 
       return check_parent_password(parent_details.parent_email_login)})
     .then((response) => {
-
+console.log("response: ", response);
         const password = response[0].password;
         const name = response[0].first_name;
+        const parent_id = response[0].id;
+        console.log("id: ", parent_id);
         req.session.name = name;
-        console.log(name);
+        req.session.parent_id = parent_id;
+        console.log(req.session);
         return bcryptjs.compare(parent_details.parent_password_login, password);
 
 

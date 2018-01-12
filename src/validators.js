@@ -11,7 +11,14 @@ const validateEmail = (email) => {
   })
 }
 
+const formatDate = (date) => {
+  const splitDate = date.split('-')
+  const reshuffle = splitDate[2] +"-"+ splitDate[1] + "-"+ splitDate[0];
+  return reshuffle;
+}
+
 
 module.exports = {
-  validateEmail
+  validateEmail,
+  formatDate
 }
