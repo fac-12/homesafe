@@ -51,7 +51,11 @@ console.log("response: ", response);
           req.flash("error_msg", err.message)
           res.redirect('/parent_registration_form')
         } else {
-          throw err;
+          res.status(500).render('error', {
+            layout: 'error',
+            statusCode: 500,
+            errorMessage: 'Server Error',
+          });
         }
       })
     }
