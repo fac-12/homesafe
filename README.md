@@ -14,6 +14,17 @@ HomeSafe allows parents to notify their child's school if someone other than the
 ## How HomeSafe works
 The website is build in node using an Express server and a postgreSQL database
 
+### User journeys
+#### Parent
+* I want to be able to register or login securely
+* I want to be able to add my child
+* I want to be able to add designated adults
+* I want to be able to schedule a pickup
+* I want to be able to logout
+
+#### School
+* I want to be able to register or login securely
+* I want to be able to see a list of organised pickups
 
 #### How to build the app
 Our app uses the following devDependencies
