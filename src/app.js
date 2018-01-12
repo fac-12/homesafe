@@ -33,6 +33,7 @@ app.engine(
   exphbs({
     extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    partialsDir: path.join(__dirname, 'views','partials'),
     defaultLayout: 'main'
   })
 );
@@ -41,4 +42,5 @@ app.set('port', process.env.PORT || 3000);
 app.use("/public", express.static(path.join(__dirname, '..', 'public')));
 app.use("/build", express.static(path.join(__dirname, '..', 'build')));
 app.use(routes);
+
 module.exports = app;

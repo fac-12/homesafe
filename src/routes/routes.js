@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
 const login_parent = require('./parent_profile');
+const add_designated_adult = require('./add_designated_adult');
+const error = require('./error');
 
 
 router.get('/', (req, res)=>{
@@ -34,4 +36,11 @@ router.post('/register_parent', register_parent.post)
 router.get('/add_child', (req, res)=>{
   res.render('add_child')
 })
+router.get('/add_da_page', (req, res)=>{
+  res.render('add_da')
+})
+router.post('/add_da', add_designated_adult.post)
+
+router.use(error.client);
+router.use(error.server);
 module.exports = router;
