@@ -31,5 +31,7 @@ router.get('/parent_profile', (req, res)=>{
 router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post)
 
-
+router.get('/add_child', (req, res)=>{
+  res.render('add_child')
+})
 module.exports = router;

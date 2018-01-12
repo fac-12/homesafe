@@ -33,7 +33,7 @@ exports.post = (req, res) => {
   }).then((bcryptres)=>{
     parent_details.password = bcryptres;
   }).then(()=>{
-    return add_parent(parent_details.first_name, parent_details.last_name, parent_details.email, parent_details.password, parent_details.address, parent_details.postcode, parent_details.phone)
+    return add_parent(parent_details)
   }).then(()=>{
     res.redirect('/parent_profile')
   })
