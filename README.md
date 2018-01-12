@@ -11,9 +11,6 @@ Primary schools in the London area regularly have no specific way to ensure a ch
 ## What HomeSafe does
 HomeSafe allows parents to notify their child's school if someone other than their regular guardian will be picking their child up from school. The app lets both parents and schools login securely and share a chosen keyword that will be repeated by a designated adult/guardian when picking up the child.
 
-## How HomeSafe works
-The website is build in node using an Express server and a postgreSQL database
-
 ### User journeys
 #### Parent
 * I want to be able to register or login securely
@@ -26,6 +23,9 @@ The website is build in node using an Express server and a postgreSQL database
 * I want to be able to register or login securely
 * I want to be able to see a list of organised pickups
 
+## Tech Stack
+Express server, handlebars, and a postgreSQL database.
+
 #### How to build the app
 Our app uses the following devDependencies
 * babel-watch
@@ -35,3 +35,6 @@ Our app uses the following devDependencies
 * tap-spec
 * tape
 You will need to create a local database
+
+#### Sofware architecture - schema
+![](public/assets/schema.png)
