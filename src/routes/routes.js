@@ -6,6 +6,11 @@ const add_designated_adult = require('./add_designated_adult');
 const error = require('./error');
 
 const add_child = require('./add_child')
+const schedule_pickup = require('./schedule_pickup')
+const parent_children_and_da = require('../queries/parent_children_and_da');
+const {
+  unique_names
+} = require('../validators')
 
 
 const checkCookie = (req, res, renderPage) => {
@@ -48,6 +53,20 @@ router.get('/parent_profile', (req, res) => {
 router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post);
 router.post('/add_child', add_child.post);
+
+router.get('/schedule_pickup', (req, res) => {
+  parent_children_and_da(req.session.parent_id).then((queryRes) => {
+    const query_result = JSON.stringify(queryRes);
+    const parse_query_result = JSON.parse(query_result);
+    res.render('schedule_new_pickup', {
+      children: unique_names(parse_query_result, 'child_name'),
+      da: unique_names(parse_query_result, 'da_name')
+    })
+  })
+
+})
+router.post('/schedule_pickup', schedule_pickup.post)
+router.post('/add__child', add_child.post)
 
 router.get('/add_child_page', (req, res) => {
   checkCookie(req, res, 'add_child');
