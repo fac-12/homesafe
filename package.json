@@ -42,6 +42,10 @@
     "nodemon": "^1.14.10",
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.8.0"
+    "tape": "^4.8.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "prettier-eslint": "^8.7.1"
   }
 }
