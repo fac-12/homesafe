@@ -11,9 +11,8 @@ else if (process.env.TRAVIS === true) {
   options = {
     database: 'travis_ci_test'
   }
-}
-else if {
- (!DATABASE_URL) throw new Error("Enviroment variable DATABASE_URL must be set");
+} else if(!DATABASE_URL) {
+   throw new Error("Enviroment variable DATABASE_URL must be set");
 } else {
 const params = url.parse(DATABASE_URL);
 const [username, password] = params.auth.split(':');
