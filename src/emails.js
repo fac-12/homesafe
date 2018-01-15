@@ -47,7 +47,25 @@ const da_pickup_confirmation_email = (da_email, keyword) => {
   });
 }
 
+const school_registeration_verification_email = (email, name, link) =>{
+  const school_email = {
+    from: 'homesafefac@gmail.com',
+    to: email,
+    subject: 'Home safe email verification',
+    html: `<p>${name}</p><p>Thank you for registering for home safe. Please follow the link below to verify your email address.</p><a href="${link}">${link}</a><p>Homesafeteam"`
+  };
+
+  transporter.sendMail(school_email, function(error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+}
+
 module.exports = {
   parent_pickup_confirmation_email,
-  da_pickup_confirmation_email
+  da_pickup_confirmation_email,
+  school_registeration_verification_email
 }

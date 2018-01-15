@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
-<<<<<<< HEAD
 const {registerSchool, verifySchool} = require('./register_school')
-=======
 const login_parent = require('./parent_profile');
 const add_designated_adult = require('./add_designated_adult');
 const error = require('./error');
@@ -14,8 +12,6 @@ const parent_children_and_da = require('../queries/parent_children_and_da');
 const {
   unique_names
 } = require('../validators')
->>>>>>> master
-
 
 const checkCookie = (req, res, renderPage) => {
   if (req.session.loggedin) {
@@ -100,11 +96,14 @@ router.post('/register_school',(req, res)=>{
   registerSchool(req, res)
 })
 
-router.use(error.client);
-router.use(error.server);
-
 router.get('/verify',(req, res)=>{
   verifySchool(req, res)
 })
+router.get('/school_profile', (req, res)=>{
+  res.render('school_profile')
+})
+router.use(error.client);
+router.use(error.server);
+
 
 module.exports = router;

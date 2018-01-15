@@ -18,7 +18,7 @@ app.use(session({
    secret: process.env.SECRET,
    saveUninitialized: false,
    resave: false,
-   cookie: {maxAge: 1000000}
+   cookie: {maxAge: 3 * 60 * 60 * 1000}
  }))
 
  app.use((req, res, next)=>{
