@@ -1,6 +1,6 @@
 const test = require('tape');
 const runDbBuild = require('../src/database/db_build.js');
-const check_parent = require('../src/queries/check_parent.js')
+// const check_parent = require('../src/queries/check_parent.js')
 
 test('tape is working', (t) => {
   const num = 2;

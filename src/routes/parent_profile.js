@@ -2,7 +2,6 @@ const bcryptjs = require('bcryptjs');
 const check_parent = require('../queries/check_parent');
 const check_parent_password = require('../queries/check_parent_password');
 const search_pickups_parent = require('../queries/search_pickups_parent');
-const formatDate = require('../validators');
 
 exports.post = (req, res) => {
   const parent_details = req.body;
@@ -11,7 +10,7 @@ exports.post = (req, res) => {
         if (queryRes[0].case === true) {
           resolve()
         } else {
-          reject(new Error("user doesn't exist, please register"))
+          reject(new Error("User doesn't exist, please register."))
         }
       })
     }).then(() => {
@@ -41,16 +40,16 @@ exports.post = (req, res) => {
           })
 
         } else {
-          reject(new Error("this password is incorrect, please try again"));
+          reject(new Error("This password is incorrect, please try again."));
         }
       })
     }).catch((err) => {
       if (err.message === "this password is incorrect, please try again") {
-        req.flash("error_msg", err.message);
+        req.flash("success", err.message);
         res.redirect("/parent_login_page");
-      } else if (err.message === "user doesn't exist, please register") {
+      } else if (err.message === "User doesn't exist, please register.") {
         req.flash("error_msg", err.message)
-        res.redirect('/parent_registration_form')
+        res.redirect('/parent_login_page')
       } else {
         res.status(500).render('error', {
           layout: 'error',

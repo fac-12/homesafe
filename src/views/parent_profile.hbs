@@ -1,15 +1,23 @@
-<h1>Welcome parent</h1>
-<a href="/add_child_page">Add child</a>
-<a href="/add_da_page"><button type="button" name="button">Add DA</button></a>
-<a href="/schedule_pickup">Schedule a pickup</a>
+<header class="parent-profile__header">
+  <h1 class="parent-profile__header__title">HomeSafe</h1>
+  <h2 class="parent-profile__header__title">Welcome Parent</h2>
+  <a class="parent-profile__logout" href="/logout">Logout</a>
+</header>
 
-<section class="scheduled">
+<section class="parent-profile__anchors">
+  <a class="parent-profile__links" href="/add_child_page">Add child</a>
+  <a class="parent-profile__links" href="/add_da_page"><button type="button" name="button">Add DA</button></a>
+  <a class="parent-profile__links" href="/schedule_pickup">Schedule a pickup</a>
+</section>
+
+
+<section class="scheduled__parent">
 {{#if parse_query_result}}
 {{#each parse_query_result}}
-  <ul class='scheduled__pickup'>
-    <li class='scheduled__pickup__date'>Date: {{formatDate this.pickup_date}}</li>
-    <li class='scheduled__pickup__child'>Child: {{this.child_name}}</li>
-    <li class='scheduled__pickup__da'>Designated adult: {{this.da_name}}</li>
+  <ul class='scheduled__pickup__parent'>
+    <li class='pickup__parent__date'>Date: {{formatDate this.pickup_date}}</li>
+    <li class='pickup__parent__child'>Child: {{this.child_name}}</li>
+    <li class='pickup__parent__da'>Designated adult: {{this.da_name}}</li>
   </ul>
 {{/each}}
 {{else}}

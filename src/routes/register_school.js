@@ -1,9 +1,10 @@
 const nodemailer = require('nodemailer');
+const bcryptjs = require('bcryptjs');
 const check_school = require('../queries/check_school');
 const add_school = require('../queries/add_school');
 const check_verification_number = require('../queries/check_verification_number');
 const {
-  school_registeration_verification_email
+  school_registration_verification_email
 } = require('../emails')
 const update_verified_status = require('../queries/update_verified_status')
 let host = "";
@@ -21,14 +22,34 @@ const registerSchool = (req, res) => {
         resolve()
       }
     })
+  }).then(()=>{
+    return new Promise((resolve, reject) => {
+      bcryptjs.hash(school_details.password, 10, (err, bcryptres) => {
+        if (err) {
+          reject(new Error("bcrypt error"))
+        } else {
+          resolve(bcryptres)
+        }
+      })
+    })
+  }).then((bcryptres) => {
+    add_school(school_details.name, school_details.email, bcryptres, random_number, false)
   }).then(() => {
-    add_school(school_details.name, school_details.email, school_details.password, random_number, false)
-  }).then(() => {
-    school_registeration_verification_email(school_details.email, school_details.name, link);
+    school_registration_verification_email(school_details.email, school_details.name, link);
   }).then(() => {
     res.end('please check your email.')
   }).catch((err) => {
-    throw err;
+    if(err.message === "User already exists, please login"){
+      req.flash("error_msg", err.message);
+      res.redirect('/school_registration_form')
+    }
+    else{
+      res.status(500).render('error', {
+        layout: 'error',
+        statusCode: 500,
+        errorMessage: 'Server Error',
+      });
+    }
   })
 
 }
