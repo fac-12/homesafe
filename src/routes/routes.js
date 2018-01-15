@@ -55,14 +55,25 @@ router.post('/register_parent', register_parent.post);
 router.post('/add_child', add_child.post);
 
 router.get('/schedule_pickup', (req, res) => {
+  if (req.session.loggedin) {
+
   parent_children_and_da(req.session.parent_id).then((queryRes) => {
+
     const query_result = JSON.stringify(queryRes);
     const parse_query_result = JSON.parse(query_result);
+    
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
       da: unique_names(parse_query_result, 'da_name')
     })
   })
+}else {
+  res.status(403).render('error', {
+    layout: 'error',
+    statusCode: 403,
+    errorMessage: 'Forbidden path',
+  });
+}
 
 })
 router.post('/schedule_pickup', schedule_pickup.post)
