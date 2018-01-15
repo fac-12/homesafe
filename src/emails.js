@@ -47,7 +47,7 @@ const da_pickup_confirmation_email = (da_email, keyword) => {
   });
 }
 
-const school_registeration_verification_email = (email, name, link) =>{
+const school_registration_verification_email = (email, name, link) =>{
   const school_email = {
     from: 'homesafefac@gmail.com',
     to: email,
@@ -67,5 +67,5 @@ const school_registeration_verification_email = (email, name, link) =>{
 module.exports = {
   parent_pickup_confirmation_email,
   da_pickup_confirmation_email,
-  school_registeration_verification_email
+  school_registration_verification_email
 }
