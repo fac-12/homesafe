@@ -33,7 +33,6 @@ const registerSchool = (req, res) => {
       })
     })
   }).then((bcryptres) => {
-    console.log("bcryp res: ", bcryptres);
     add_school(school_details.name, school_details.email, bcryptres, random_number, false)
   }).then(() => {
     school_registration_verification_email(school_details.email, school_details.name, link);
