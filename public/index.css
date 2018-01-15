@@ -1,3 +1,45 @@
-body{
-  background-color: pink;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.home_title {
+  font-size: 50px;
+  color: white;
+}
+
+.home_tagline {
+  font-size: 18px;
+  color: white;
+}
+
+.home_user_submit {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+
+}
+
+.home_user_login {
+  background-color: rgba(46, 98, 115, 0.31);
+  font-size: 36px;
+  color: white;
+  border-radius: 100px;
+  radius: 100px;
+  border-width: 3px;
+  border-color: rgba(46, 98, 115, 0.62);
+  width:205px;
+  height: 72px;
+}
+
+.index {
+  height: 100vh;
+  background-image: url(./assets/child.jpeg);
+  background-size: cover;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
