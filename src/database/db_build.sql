@@ -21,7 +21,9 @@ CREATE TABLE schools (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
-  password VARCHAR(100) NOT NULL
+  password VARCHAR(100) NOT NULL,
+  verification_number VARCHAR(10),
+  verified BOOLEAN
 );
 
 CREATE TABLE children (
@@ -57,8 +59,8 @@ CREATE TABLE scheduled_pickups (
 INSERT INTO parents (first_name, last_name, email, address, postcode, phone, password) VALUES ('Kitty', 'Allen', 'k@a.com', '27 Soudan St Thirroul NSW', 'E83AS', '07490388097', 'apple');
 INSERT INTO parents (first_name, last_name, email, address, postcode, phone, password) VALUES ('Sophie', 'Levens', 's@l.com', '123 Fake St', 'SW166AP', '07422388097', 'watermelon');
 
-INSERT INTO schools (name, email, password) VALUES ('St Andrews', 'k.allen91@gmail.com', 'cucumber');
-INSERT INTO schools (name, email, password) VALUES ('Portway', 'school@school.com', 'pepper');
+INSERT INTO schools (name, email, password, verification_number, verified) VALUES ('St Andrews', 'k.allen91@gmail.com', 'cucumber', '289013', true);
+INSERT INTO schools (name, email, password, verification_number, verified) VALUES ('Portway', 'school@school.com', 'pepper', '39839830', false);
 
 INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 'k@a.com'), (SELECT id FROM schools WHERE email = 'k.allen91@gmail.com'), 'Frankie', 'Allen', 3, '1991-03-06');
 INSERT INTO children (parent_id, school_id, first_name, last_name, year, dob) VALUES ((SELECT id FROM parents WHERE email = 's@l.com'), (SELECT id FROM schools WHERE email = 'school@school.com'), 'Pebbles', 'Levens', 3, '1990-01-01');

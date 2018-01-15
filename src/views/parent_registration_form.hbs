@@ -1,5 +1,13 @@
 <h1>Parent Register</h1>
 
+<section>
+  {{#if success}}
+  <p>{{success}}</p>
+  {{else if error_msg}}
+  <p>{{error_msg}}</p>
+  {{/if}}
+</section>
+
 <section class="parent-registration">
 <form class="parent-registration__form" action="/register_parent" method="post">
 <label class="parent-registration__labels" for="parent-registration-firstname">First Name<input type="text" name="first_name" id="parent-registration-firstname" class="parent-registration__inputs" required></label>
