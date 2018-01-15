@@ -59,10 +59,9 @@ router.get('/schedule_pickup', (req, res) => {
   parent_children_and_da(req.session.parent_id).then((queryRes) => {
     const query_result = JSON.stringify(queryRes);
     const parse_query_result = JSON.parse(query_result);
-<<<<<<< HEAD
-=======
 
->>>>>>> master
+
+
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
       da: unique_names(parse_query_result, 'da_name')

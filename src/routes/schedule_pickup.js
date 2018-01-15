@@ -25,7 +25,7 @@ exports.post = (req, res) => {
     }).then((emails) => {
       parent_pickup_confirmation_email(emails[0].email);
       da_pickup_confirmation_email(emails[0].da_email, schedule_details.keyword);
-      // return;
+      return;
     })
     .then(() => res.render('pickup_confirmation'))
     .catch((err) => {

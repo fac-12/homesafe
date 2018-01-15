@@ -12,8 +12,17 @@ exports.post = (req, res) => {
         } else {
           reject(new Error("User doesn't exist, please register"))
         }
-      })
-    }).then(() => {
+      }).then(() =>
+      check_school_verification(school_details.school_email_login))
+      .then((queryRes) => {
+        return new Promise((resolve, reject) => {
+          if (queryRes === true) {
+            resolve()
+          } else {
+            reject(new Error("Please check and verify your email."))
+          }
+        })
+    .then(() => {
       return check_school_password(school_details.school_email_login)
     })
     .then((response) => {
