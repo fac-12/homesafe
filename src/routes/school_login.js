@@ -2,7 +2,7 @@ const bcryptjs = require('bcryptjs');
 const check_school = require('../queries/check_school');
 const check_school_password = require('../queries/check_school_password');
 const search_pickups = require('../queries/search_pickups');
-
+const check_school_verification = require('../queries/check_school_verification');
 exports.post = (req, res) => {
   const school_details = req.body;
   check_school(school_details.school_email_login).then((queryRes) => {
@@ -16,17 +16,18 @@ exports.post = (req, res) => {
       check_school_verification(school_details.school_email_login))
       .then((queryRes) => {
         return new Promise((resolve, reject) => {
-          if (queryRes === true) {
-            resolve()
+
+          if (queryRes[0].verified === true) {
+            resolve();
           } else {
             reject(new Error("Please check and verify your email."))
           }
         })
+      })
     .then(() => {
       return check_school_password(school_details.school_email_login)
     })
     .then((response) => {
-      console.log(response);
       const password = response[0].password;
       const name = response[0].name;
       const school_id = response[0].id;
@@ -60,7 +61,10 @@ exports.post = (req, res) => {
       } else if (err.message === "user doesn't exist, please register") {
         req.flash("error_msg", err.message)
         res.redirect('/school_registration_form')
-      } else {
+      } else if (err.message === "Please check and verify your email.") {
+        req.flash("error_msg", err.message)
+        res.redirect('/school_login_page')
+      }else {
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,
@@ -68,4 +72,5 @@ exports.post = (req, res) => {
         });
       }
     })
+})
 }
