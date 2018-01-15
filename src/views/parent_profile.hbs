@@ -1,1 +1,18 @@
 <h1>Welcome parent</h1>
+<a href="/add_child_page">Add child</a>
+<a href="/add_da_page"><button type="button" name="button">Add DA</button></a>
+<a href="/schedule_pickup">Schedule a pickup</a>
+
+<section class="scheduled">
+{{#if parse_query_result}}
+{{#each parse_query_result}}
+  <ul class='scheduled__pickup'>
+    <li class='scheduled__pickup__date'>Date: {{formatDate this.pickup_date}}</li>
+    <li class='scheduled__pickup__child'>Child: {{this.child_name}}</li>
+    <li class='scheduled__pickup__da'>Designated adult: {{this.da_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <h3>You currently have no scheduled pickups.</h3>
+{{/if}}
+</section>

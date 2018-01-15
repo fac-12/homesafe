@@ -51,6 +51,7 @@ CREATE TABLE scheduled_pickups (
   id SERIAL PRIMARY KEY,
   parent_id INT REFERENCES parents(id) ON DELETE CASCADE,
   child_id INT REFERENCES children(id) ON DELETE CASCADE,
+  designated_adult_id INT REFERENCES designated_adults(id) ON DELETE CASCADE,
   pickup_date DATE,
   keyword VARCHAR(50) NOT NULL
 );

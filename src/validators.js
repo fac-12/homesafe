@@ -11,7 +11,19 @@ const validateEmail = (email) => {
   })
 }
 
+const make_names_array = (obj, which_names) => {
+  var arrayObj = obj.reduce(function(acc, el){
+    return acc.concat(el[which_names])
+  }, [])
+  return arrayObj
+}
+
+const unique_names = (obj, which_names) => {
+  const all_names = make_names_array(obj, which_names)
+  return all_names.filter((v, i, a) => a.indexOf(v) === i);
+}
 
 module.exports = {
-  validateEmail
+  validateEmail,
+  unique_names
 }
