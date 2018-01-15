@@ -33,10 +33,10 @@ exports.post = (req, res) => {
           req.flash("name", req.session.name)
 
           search_pickups(req.session.parent_id).then((queryRes) => {
-            const query_result = JSON.stringify(queryRes);
-            const parse_query_result = JSON.parse(query_result);
-            res.render('parent_profile', {
-              parse_query_result
+            const query_result = JSON.parse(JSON.stringify(queryRes));
+            console.log(query_result);
+            res.render('school_profile', {
+              query_result
             });
           })
 
