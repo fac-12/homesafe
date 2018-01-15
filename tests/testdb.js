@@ -8,14 +8,14 @@ test('tape is working', (t) => {
   t.end();
 })
 
-test('check parent exists', (t) => {
-     runDbBuild().then(() => {
-       let email = 'k@a.com';
-       return check_parent(email)
-     }).then((queryRes) => {
-       t.equal(queryRes[0].case, true, 'If parent exists then check_parent should return true- promise');
-       t.end();
-     }).catch((err) => {
-       throw err;
-     })
-   })
+// test('check parent exists', (t) => {
+//      runDbBuild().then(() => {
+//        let email = 'k@a.com';
+//        return check_parent(email)
+//      }).then((queryRes) => {
+//        t.equal(queryRes[0].case, true, 'If parent exists then check_parent should return true- promise');
+//        t.end();
+//      }).catch((err) => {
+//        throw err;
+//      })
+//    })

@@ -6,41 +6,70 @@
 
 .home_title {
   font-size: 50px;
-  color: white;
+  color: RGBA(255, 255, 255, 1);
   text-align: center;
 }
 
 .home_tagline {
   font-size: 18px;
-  color: white;
+  color: RGBA(255, 255, 255, 1);
 }
 
 .home_user_submit {
   border: none;
   background-color: inherit;
   font-size: 16px;
-
 }
 
-.home_user_login {
+.home_user_login, .user__select__button {
   background-color: rgba(46, 98, 115, 0.31);
-  font-size: 36px;
-  color: white;
+  font-size: 1.5rem;
+  color: RGBA(255, 255, 255, 1);
   border-radius: 100px;
   radius: 100px;
   border-width: 3px;
   border-color: rgba(46, 98, 115, 0.62);
-  width:205px;
+  width: 205px;
   height: 72px;
 }
 
-.index {
+.background_image{
   height: 100vh;
   background-image: url(./assets/child.jpeg);
   background-size: cover;
-  opacity: 0.8;
+  background-position: center;
+}
+
+.overlay {
+  height: 100vh;
+  background-color: rgba(46, 98, 115, 0.4);
+  width: 100vw;
+}
+.flex-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.user__select__text {
+  color: RGBA(255, 255, 255, 1);
+  font-size: .8rem;
+  text-align: center;
+}
+
+.home__user__back {
+  font-size: 4rem;
+  color: RGBA(255, 255, 255, 1);
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+}
+
+.header__banner {
+  width: 100vw;
+  background-color:rgba(46, 98, 115, 1);
+  height: 30px;
+  text-align: center;
+  color: RGBA(255, 255, 255, 1);
 }
