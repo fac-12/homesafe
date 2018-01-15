@@ -26,7 +26,6 @@ exports.post = (req, res) => {
       return bcryptjs.compare(parent_details.parent_password_login, password);
 
     }).then((bcryptResponse) => {
-      console.log("bcrypt res: ", bcryptResponse);
       return new Promise((resolve, reject) => {
 
         if (bcryptResponse) {
@@ -47,7 +46,6 @@ exports.post = (req, res) => {
       })
     }).catch((err) => {
       if (err.message === "this password is incorrect, please try again") {
-        console.log("This password is incorrect, please try again.");
         req.flash("success", err.message);
         res.redirect("/parent_login_page");
       } else if (err.message === "User doesn't exist, please register.") {
