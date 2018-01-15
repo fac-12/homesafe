@@ -11,7 +11,7 @@ exports.post = (req, res) => {
         if (queryRes[0].case === true) {
           resolve()
         } else {
-          reject(new Error("user doesn't exist, please register"))
+          reject(new Error("User doesn't exist, please register."))
         }
       })
     }).then(() => {
@@ -26,6 +26,7 @@ exports.post = (req, res) => {
       return bcryptjs.compare(parent_details.parent_password_login, password);
 
     }).then((bcryptResponse) => {
+      console.log("bcrypt res: ", bcryptResponse);
       return new Promise((resolve, reject) => {
 
         if (bcryptResponse) {
@@ -41,16 +42,17 @@ exports.post = (req, res) => {
           })
 
         } else {
-          reject(new Error("this password is incorrect, please try again"));
+          reject(new Error("This password is incorrect, please try again."));
         }
       })
     }).catch((err) => {
       if (err.message === "this password is incorrect, please try again") {
-        req.flash("error_msg", err.message);
+        console.log("This password is incorrect, please try again.");
+        req.flash("success", err.message);
         res.redirect("/parent_login_page");
-      } else if (err.message === "user doesn't exist, please register") {
+      } else if (err.message === "User doesn't exist, please register.") {
         req.flash("error_msg", err.message)
-        res.redirect('/parent_registration_form')
+        res.redirect('/parent_login_page')
       } else {
         res.status(500).render('error', {
           layout: 'error',

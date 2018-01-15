@@ -39,20 +39,6 @@ app.engine(
   })
 );
 
-app.use(session({
-  secret: process.env.SECRET,
-  saveUninitialized: false,
-  resave: false,
-  cookie: {maxAge: 1000000}
-}))
-
-app.use((req, res, next)=>{
-  res.locals.success = req.flash('success');
-  res.locals.error_msg = req.flash('error_msg');
-  next();
-})
-
-
 app.set('port', process.env.PORT || 3000);
 app.use("/public", express.static(path.join(__dirname, '..', 'public')));
 app.use("/build", express.static(path.join(__dirname, '..', 'build')));
