@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
+const {registerSchool, verifySchool} = require('./register_school')
 const login_parent = require('./parent_profile');
 const add_designated_adult = require('./add_designated_adult');
 const error = require('./error');
@@ -10,7 +11,6 @@ const schedule_pickup = require('./schedule_pickup')
 const parent_children_and_da = require('../queries/parent_children_and_da');
 const unique_names = require('../validators');
 const school_login = require('./school_login');
-
 
 const checkCookie = (req, res, renderPage) => {
   if (req.session.loggedin) {
@@ -59,6 +59,10 @@ router.get('/schedule_pickup', (req, res) => {
   parent_children_and_da(req.session.parent_id).then((queryRes) => {
     const query_result = JSON.stringify(queryRes);
     const parse_query_result = JSON.parse(query_result);
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
       da: unique_names(parse_query_result, 'da_name')
@@ -85,6 +89,20 @@ router.get('/add_da_page', (req, res) => {
 
 router.post('/add_da', add_designated_adult.post)
 
+router.get('/school_registration_form', (req, res)=>{
+  res.render('school_registration_form')
+})
+router.post('/register_parent', register_parent.post)
+router.post('/register_school',(req, res)=>{
+  registerSchool(req, res)
+})
+
+router.get('/verify',(req, res)=>{
+  verifySchool(req, res)
+})
+router.get('/school_profile', (req, res)=>{
+  res.render('school_profile')
+})
 router.use(error.client);
 router.use(error.server);
 
