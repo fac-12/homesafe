@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 const url = require('url');
 require('env2')('./config.env');
-const options;
+const options = {};
 
 let DATABASE_URL = process.env.DATABASE_URL;
 if (process.env.NODE_ENV === "test") {
