@@ -11,7 +11,6 @@ const validateEmail = (email) => {
   })
 }
 
-
 const make_names_array = (obj, which_names) => {
   var arrayObj = obj.reduce(function(acc, el){
     return acc.concat(el[which_names])
