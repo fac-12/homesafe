@@ -1,2 +1,19 @@
-<h1>Hello</h1>
+
+<h1>Welcome school</h1>
+
+<section class="scheduled__school">
+{{#if query_result}}
+{{#each query_result}}
+  <ul class='scheduled__pickup__school'>
+    <li class='pickup__school__date'>Date: {{formatDate this.pickup_date}}</li>
+    <li class='pickup__school__child'>Child: {{this.child_first_name}} {{this.child_last_name}}</li>
+    <li class='pickup__school__da'>Designated adult: {{this.da_first_name}} {{this.da_last_name}}</li>
+    <li class='pickup__school__keyword'>Keyword: {{this.keyword}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <h3>There are currently no scheduled pickups organised.</h3>
+{{/if}}
+</section>
+
 <a class="school-profile__logout" href="/logout">Logout</a>
