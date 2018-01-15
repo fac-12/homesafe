@@ -102,6 +102,12 @@ router.get('/verify',(req, res)=>{
 router.get('/school_profile', (req, res)=>{
   res.render('school_profile')
 })
+
+router.get('/logout', (req, res) => {
+  req.session = null;
+  res.redirect('/')
+})
+
 router.use(error.client);
 router.use(error.server);
 
