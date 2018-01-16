@@ -3,6 +3,8 @@ const check_school = require('../queries/check_school');
 const check_school_password = require('../queries/check_school_password');
 const search_pickups = require('../queries/search_pickups');
 const check_school_verification = require('../queries/check_school_verification');
+const {today_date} = require('../validators');
+
 exports.post = (req, res) => {
   const school_details = req.body;
   check_school(school_details.school_Email_Login).then((queryRes) => {
@@ -41,7 +43,11 @@ exports.post = (req, res) => {
           req.session.loggedin = true;
           req.flash("name", req.session.name)
 
-          search_pickups(req.session.school_id).then((queryRes) => {
+          const today = today_date();
+          console.log(today);
+
+          search_pickups(req.session.school_id, today).then((queryRes) => {
+
             const query_result = JSON.parse(JSON.stringify(queryRes));
             res.render('school_profile', {
               query_result

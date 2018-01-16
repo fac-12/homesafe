@@ -23,7 +23,24 @@ const unique_names = (obj, which_names) => {
   return all_names.filter((v, i, a) => a.indexOf(v) === i);
 }
 
+const today_date = () => {
+
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1;
+  let yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd = '0'+dd
+  }
+  if(mm<10) {
+      mm = '0'+mm
+  }
+  return yyyy + '-' + mm + '-' + dd;
+};
+
 module.exports = {
   validateEmail,
-  unique_names
+  unique_names,
+  today_date
 }
