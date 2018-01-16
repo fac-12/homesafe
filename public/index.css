@@ -15,7 +15,7 @@
   color: RGBA(255, 255, 255, 1);
 }
 
-.home_user_submit {
+.home_user_submit, .home__user__back, .login_parent__buttons__back, .login_school__buttons__back, .parent_registration__buttons__back, .login_registration__buttons__back {
   border: none;
   background-color: inherit;
   font-size: 16px;
@@ -45,11 +45,12 @@
   background-color: rgba(46, 98, 115, 0.4);
   width: 100vw;
 }
-.flex-column {
+.flex-column, .login-parent, .login-parent__form, .login-school, .login-school__form, .school-registration, .school-registration__form, .parent-registration, .parent-registration__form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  min-height: 40vh;
 }
 
 .user__select__text {
@@ -58,18 +59,25 @@
   text-align: center;
 }
 
-.home__user__back {
-  font-size: 4rem;
-  color: RGBA(255, 255, 255, 1);
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
-}
-
 .header__banner {
   width: 100vw;
   background-color:rgba(46, 98, 115, 1);
   height: 30px;
   text-align: center;
   color: RGBA(255, 255, 255, 1);
+}
+
+.login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit {
+  border-color: rgba(60, 217, 122, 1);
+  border-width: 3px;
+  width: 150px;
+  height: 50px;
+  border-radius: 100px;
+  font-size: 1.5rem;
+  color: rgba(60, 217, 122, 1);
+}
+
+input[type=text], input[type=email], input[type=password] {
+    border: none;
+    border-bottom: 2px solid rgba(40, 183, 144, 1);
 }

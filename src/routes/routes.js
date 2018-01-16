@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
@@ -29,10 +30,10 @@ router.get('/', (req, res) => {
 })
 
 router.get('/school_login_page', (req, res) => {
-  res.render('school_login', { layout: 'main' })
+  res.render('school_login')
 })
 router.get('/parent_login_page', (req, res) => {
-  res.render('parent_login', { layout: 'main' })
+  res.render('parent_login')
 })
 
 router.get('/user_select', (req, res) => {
@@ -42,7 +43,7 @@ router.get('/user_select_register', (req, res) => {
   res.render('user_select_register')
 })
 router.get('/parent_registration_form', (req, res) => {
-  res.render('parent_registration_form', { layout: 'main' })
+  res.render('parent_registration_form')
 })
 
 router.get('/parent_profile', (req, res) => {
@@ -89,7 +90,7 @@ router.get('/add_da_page', (req, res) => {
 router.post('/add_da', add_designated_adult.post)
 
 router.get('/school_registration_form', (req, res)=>{
-  res.render('school_registration_form', { layout: 'main' })
+  res.render('school_registration_form')
 })
 router.post('/register_parent', register_parent.post)
 router.post('/register_school',(req, res)=>{
@@ -100,7 +101,7 @@ router.get('/verify',(req, res)=>{
   verifySchool(req, res)
 })
 router.get('/school_profile', (req, res)=>{
-  res.render('school_profile', { layout: 'main' })
+  res.render('school_profile')
 })
 
 router.get('/logout', (req, res) => {

@@ -1,4 +1,6 @@
-<h1>Parent Register</h1>
+<header class="header__banner">
+  <h4 class="header__text">HomeSafe</h4>
+</header>
 
 <section>
   {{#if success}}
@@ -10,6 +12,7 @@
 
 <section class="parent-registration">
 <form class="parent-registration__form" action="/register_parent" method="post">
+<h1 class="parent-registeration__form__heading">Parent Register</h1>
 <label class="parent-registration__labels" for="parent-registration-firstname">First Name<input type="text" name="first_name" id="parent-registration-firstname" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-lastname">Last Name<input type="text" name="last_name" id="parent-registration-lastname" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-email">Email<input type="email" name="email" id="parent-registration-email" class="parent-registration__inputs" required></label>
@@ -17,10 +20,10 @@
 <label class="parent-registration__labels" for="parent-registration-address">Address<input type="text" name="address" id="parent-registration-address" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-postcode">Postcode<input type="text" name="postcode" id="parent-registration-postcode" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-phone">Phone Number<input type="text" name="phone" id="parent-registration-phone" class="parent-registration__inputs" required></label>
-<label for="parent-registration-submit" class="parent-registration__labels"> <input type="submit" value="Register" id="parent-registration-submit" class="parent-registration__inputs"> </label>
+<label for="parent-registration-submit" class="parent-registration__labels"> <input type="submit" value="Register" id="parent-registration-submit" class="parent-registration__submit"> </label>
 </form>
 
-<form class="parent-registration_form_back_button" action="/parent_login_page" method="get">
-  <label for="back_button" class=""><input type="submit" value="Back" id="back_button" class="parent-registration_back_button"> </label>
+<form class="parent-registration_form_back_button" action="/user_select_register" method="get">
+  <label for="back_button" class=""><input type="submit" value="Back" id="back_button" class="parent_registration__buttons__back"> </label>
 </form>
 </section>

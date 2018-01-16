@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+
+
 {{> head}}
+
+
 <body>
-{{> header}}
   <section>
     {{#if name}}
     <p>{{name}}</p>
@@ -15,8 +18,9 @@
     <p>{{error_msg}}</p>
     {{/if}}
   </section>
-{{> nav}}
-  <script type="text/javascript" src="/build/public/index.js"></script>
+  {{{body}}}
+
+  <script type="text/javascript" src="/build/index.js"></script>
 </body>
 
 
