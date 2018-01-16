@@ -63,12 +63,12 @@ exports.post = (req, res) => {
       } else if (err.message === "Please check and verify your email.") {
         req.flash("error_msg", err.message)
         res.redirect('/school_login_page')
-      // }else {
-      //   res.status(500).render('error', {
-      //     layout: 'error',
-      //     statusCode: 500,
-      //     errorMessage: 'Server Error',
-      //   });
+      }else {
+        res.status(500).render('error', {
+          layout: 'error',
+          statusCode: 500,
+          errorMessage: 'Server Error',
+        });
 
       }
     })
