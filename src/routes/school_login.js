@@ -5,7 +5,7 @@ const search_pickups = require('../queries/search_pickups');
 const check_school_verification = require('../queries/check_school_verification');
 exports.post = (req, res) => {
   const school_details = req.body;
-  check_school(school_details.school_email_login).then((queryRes) => {
+  check_school(school_details.school_Email_Login).then((queryRes) => {
       return new Promise((resolve, reject) => {
         if (queryRes[0].case === true) {
           resolve()
@@ -13,7 +13,7 @@ exports.post = (req, res) => {
           reject(new Error("User doesn't exist, please register"))
         }
       }).then(() =>
-      check_school_verification(school_details.school_email_login))
+      check_school_verification(school_details.school_Email_Login))
       .then((queryRes) => {
         return new Promise((resolve, reject) => {
 
@@ -24,13 +24,12 @@ exports.post = (req, res) => {
           }
         })
       })
-    .then(() => {
-      return check_school_password(school_details.school_email_login)
-    })
-    .then((response) => {
-      const password = response[0].password;
-      const name = response[0].name;
-      const school_id = response[0].id;
+    .then(() =>
+    check_school_password(school_details.school_Email_Login))
+    .then((queryRes) => {
+      const password = queryRes[0].password;
+      const name = queryRes[0].name;
+      const school_id = queryRes[0].id;
       req.session.name = name;
       req.session.school_id = school_id;
       return bcryptjs.compare(school_details.school_password_login, password);
@@ -42,9 +41,9 @@ exports.post = (req, res) => {
           req.session.loggedin = true;
           req.flash("name", req.session.name)
 
-          search_pickups(req.session.parent_id).then((queryRes) => {
+          search_pickups(req.session.school_id).then((queryRes) => {
             const query_result = JSON.parse(JSON.stringify(queryRes));
-            console.log(query_result);
+            console.log('search pickups query res :', query_result);
             res.render('school_profile', {
               query_result
             });
@@ -70,6 +69,7 @@ exports.post = (req, res) => {
           statusCode: 500,
           errorMessage: 'Server Error',
         });
+
       }
     })
 })
