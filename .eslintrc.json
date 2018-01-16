@@ -1,8 +1,10 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "rules": {
-    "indent": ["error", 2],
-    "semi": ["error", "always"],
-    "no-console": 0
+"extends": ["airbnb", "prettier"],
+"rules": {
+"indent": ["error", 2],
+"semi": ["error", "always"],
+"no-console": 0,
+"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+"react/jsx-indent": ["error", 2]
 }
 }
