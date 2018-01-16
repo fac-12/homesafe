@@ -1,9 +1,13 @@
 {{> header_banner}}
 {{> flash_messages}}
 <section>
-  <h3>Welcome school</h3>
+  <h3>Welcome</h3>
 </section>
 
+<form class="school__profile__form" action="/pick_date" method="post">
+<label for="school__profile__calendar" class="">Choose a different date: <input type="date" value="" name='calendar__date' class="school__profile__date"></label>
+<label for="school__profile__submit" class=""><input type="submit" value="Enter" class="school__profile__form__submit"></label>
+</form>
 
 <section class="scheduled__school">
 {{#if query_result}}
