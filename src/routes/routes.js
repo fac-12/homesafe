@@ -63,7 +63,6 @@ router.get('/schedule_pickup', (req, res) => {
     const parse_query_result = JSON.parse(query_result);
 
 
-console.log(parse_query_result);
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
       da: unique_names(parse_query_result, 'da_name')
@@ -86,7 +85,6 @@ router.get('/add_child_page', (req, res) => {
   all_schools().then((queryRes)=>{
     const stringifyQueryRes = JSON.stringify(queryRes);
     const parseQueryRes = JSON.parse(stringifyQueryRes);
-    console.log(parseQueryRes);
     res.render('add_child', {schools: parseQueryRes})
   })
 } else {
