@@ -1,12 +1,5 @@
 {{> header_banner}}
-
-<section>
-  {{#if success}}
-  <p>{{success}}</p>
-  {{else if error_msg}}
-  <p>{{error_msg}}</p>
-  {{/if}}
-</section>
+{{> flash_messages}}
 
 <section class="parent-registration">
 <form class="parent-registration__form" action="/register_parent" method="post">

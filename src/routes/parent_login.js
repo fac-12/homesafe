@@ -1,11 +1,12 @@
 const bcryptjs = require('bcryptjs');
 const check_parent = require('../queries/check_parent');
 const check_parent_password = require('../queries/check_parent_password');
-const search_pickups_parent = require('../queries/search_pickups_parent');
+
 
 exports.post = (req, res) => {
   const parent_details = req.body;
-  check_parent(parent_details.parent_email_login).then((queryRes) => {
+  check_parent(parent_details.parent_email_login)
+    .then((queryRes) => {
       return new Promise((resolve, reject) => {
         if (queryRes[0].case === true) {
           resolve()
@@ -13,7 +14,8 @@ exports.post = (req, res) => {
           reject(new Error("User doesn't exist, please register."))
         }
       })
-    }).then(() => {
+    })
+    .then(() => {
       return check_parent_password(parent_details.parent_email_login)
     })
     .then((response) => {
@@ -23,27 +25,19 @@ exports.post = (req, res) => {
       req.session.name = name;
       req.session.parent_id = parent_id;
       return bcryptjs.compare(parent_details.parent_password_login, password);
-
-    }).then((bcryptResponse) => {
+    })
+    .then((bcryptResponse) => {
       return new Promise((resolve, reject) => {
-
         if (bcryptResponse) {
           req.session.loggedin = true;
           req.flash("name", req.session.name)
-
-          search_pickups_parent(req.session.parent_id).then((queryRes) => {
-            const query_result = JSON.stringify(queryRes);
-            const parse_query_result = JSON.parse(query_result);
-            res.render('parent_profile', {
-              parse_query_result
-            });
-          })
-
+          res.redirect('parent_profile')
         } else {
           reject(new Error("This password is incorrect, please try again."));
         }
       })
-    }).catch((err) => {
+    })
+    .catch((err) => {
       if (err.message === "this password is incorrect, please try again") {
         req.flash("success", err.message);
         res.redirect("/parent_login_page");
