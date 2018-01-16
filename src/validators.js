@@ -11,6 +11,18 @@ const validateEmail = (email) => {
   })
 }
 
+const checkCookie = (req, res, renderPage) => {
+  if (req.session.loggedin) {
+    res.render(renderPage)
+  } else {
+    res.status(403).render('error', {
+      layout: 'error',
+      statusCode: 403,
+      errorMessage: 'Forbidden path',
+    });
+  }
+}
+
 const make_names_array = (obj, which_names) => {
   var arrayObj = obj.reduce(function(acc, el){
     return acc.concat(el[which_names])
@@ -42,5 +54,6 @@ const today_date = () => {
 module.exports = {
   validateEmail,
   unique_names,
-  today_date
+  today_date,
+  checkCookie
 }

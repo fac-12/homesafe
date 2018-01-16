@@ -1,32 +1,21 @@
-
 const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
 const {registerSchool, verifySchool} = require('./register_school')
+const {checkCookie} = require('../validators');
 const login_parent = require('./parent_login');
 const add_designated_adult = require('./add_designated_adult');
-const all_schools = require('../queries/all_schools');
 const error = require('./error');
 
 const add_child = require('./add_child')
 const schedule_pickup = require('./schedule_pickup')
-const parent_children_and_da = require('../queries/parent_children_and_da');
-const {unique_names} = require('../validators');
 const school_login = require('./school_login');
 const search_pickups_parent = require('../queries/search_pickups_parent');
 const pick_date = require('./pick_date');
+const add_child_page = require('./add_child_page');
+const get_schedule_pickups = require('./get_schedule_pickups');
 
-const checkCookie = (req, res, renderPage) => {
-  if (req.session.loggedin) {
-    res.render(renderPage)
-  } else {
-    res.status(403).render('error', {
-      layout: 'error',
-      statusCode: 403,
-      errorMessage: 'Forbidden path',
-    });
-  }
-}
+
 
 router.get('/', (req, res) => {
   res.render("home");
@@ -73,68 +62,29 @@ router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post);
 router.post('/add_child', add_child.post);
 router.post('/login_school', school_login.post);
-
-router.get('/schedule_pickup', (req, res) => {
-  if (req.session.loggedin) {
-  parent_children_and_da(req.session.parent_id).then((queryRes) => {
-    const query_result = JSON.stringify(queryRes);
-    const parse_query_result = JSON.parse(query_result);
-
-
-    res.render('schedule_new_pickup', {
-      children: unique_names(parse_query_result, 'child_name'),
-      da: unique_names(parse_query_result, 'da_name')
-    })
-  })
-}else {
-  res.status(403).render('error', {
-    layout: 'error',
-    statusCode: 403,
-    errorMessage: 'Forbidden path',
-  });
-}
-
-})
-router.post('/schedule_pickup', schedule_pickup.post)
-router.post('/add__child', add_child.post)
-
-router.get('/add_child_page', (req, res) => {
-  if (req.session.loggedin) {
-  all_schools().then((queryRes)=>{
-    const stringifyQueryRes = JSON.stringify(queryRes);
-    const parseQueryRes = JSON.parse(stringifyQueryRes);
-    res.render('add_child', {schools: parseQueryRes})
-  })
-} else {
-  res.status(403).render('error', {
-    layout: 'error',
-    statusCode: 403,
-    errorMessage: 'Forbidden path',
-  });
-}
-})
-router.get('/add_da_page', (req, res) => {
-  checkCookie(req, res, 'add_da');
-})
-
-router.post('/add_da', add_designated_adult.post)
-
-router.get('/school_registration_form', (req, res)=>{
-  res.render('school_registration_form')
-})
+router.post('/add_da', add_designated_adult.post);
+router.post('/schedule_pickup', schedule_pickup.post);
 router.post('/register_parent', register_parent.post)
 router.post('/register_school',(req, res)=>{
   registerSchool(req, res)
 })
 router.post('/pick_date', pick_date.post);
 
+
+router.get('/schedule_pickup', get_schedule_pickups.get);
+router.get('/add_child_page', add_child_page.get);
+router.get('/add_da_page', (req, res) => {
+  checkCookie(req, res, 'add_da');
+})
+router.get('/school_registration_form', (req, res)=>{
+  res.render('school_registration_form')
+})
 router.get('/verify',(req, res)=>{
   verifySchool(req, res)
 })
 router.get('/school_profile', (req, res)=>{
   res.render('school_profile')
 })
-
 router.get('/logout', (req, res) => {
   req.session = null;
   res.redirect('/')
