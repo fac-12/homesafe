@@ -1,11 +1,13 @@
 <section class="add_pickup">
   <form class="add__pickup__form" action="/schedule_pickup" method="post">
-    <select class="add__pickup__select" name="child_name">
+    <label for="pickup_child" class="add__pickup__labels">Child name</label>
+    <select class="add__pickup__select" name="child_name" id="pickup_child">
       {{#each children}}
       <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
-    <select class="add__pickup__select" name="da_name">
+      <label for="pickup_da" class="add__pickup__labels">Designated adult name</label>
+    <select class="add__pickup__select" name="da_name" id="pickup_da">
       {{#each da}}
       <option value="{{this}}">{{this}}</option>
       {{/each}}
