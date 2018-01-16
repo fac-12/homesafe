@@ -1,26 +1,25 @@
 {{> header_banner}}
+{{> flash_messages}}
+
 
 <section class="add_pickup">
   <form class="add__pickup__form" action="/schedule_pickup" method="post">
     <h3 class="add__pickup__form__heading">Schedule new pickup</h3>
+      <p>Please make sure you have at least one child and designated adult added before you try to schedule a pickup which is why both fields are empty.</p>
     <label for="pickup_child" class="add__pickup__labels">Child name</label>
-    <select class="add__pickup__select" name="child_name" id="pickup_child">
+    <select class="add__pickup__select" name="child_name" id="pickup_child" required>
       {{#each children}}
       <option value="{{this}}">{{this}}</option>
-      {{else}}
-      <option value="No da">No children</option>
     {{/each}}
     </select>
       <label for="pickup_da" class="add__pickup__labels">Designated adult name</label>
-    <select class="add__pickup__select" name="da_name" id="pickup_da">
+    <select class="add__pickup__select" name="da_name" id="pickup_da" required>
       {{#each da}}
       <option value="{{this}}">{{this}}</option>
-      {{else}}
-      <option value="No da">No designated adult</option>
       {{/each}}
     </select>
-    <label for="pickup_date" class="add__pickup__labels">Pickup date<input type="date" name="pickup_date" class="add__pickup__inputs" id="pickup_date"> </label>
-    <label for="pickup_keyword" class="add__pickup__labels"> Keyword <input type="text" name="keyword" class="add__pickup__inputs" id="pickup_keyword"> </label>
+    <label for="pickup_date" class="add__pickup__labels">Pickup date<input type="date" name="pickup_date" class="add__pickup__inputs" id="pickup_date" required> </label>
+    <label for="pickup_keyword" class="add__pickup__labels"> Keyword <input type="text" name="keyword" class="add__pickup__inputs" id="pickup_keyword" required> </label>
     <label for="submitBtn"> <input type="submit" value="Schedule pickup"> </label>
   </form>
   <a href="/parent_profile">Back</a>

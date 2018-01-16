@@ -1,13 +1,16 @@
 {{> header_banner}}
-
+{{> flash_messages}}
 <section class="parent-profile__header">
   <h3 class="parent-profile__header__title">Welcome Parent</h3>
+  {{#if name}}
+  <p>{{name}}</p>
+  {{/if}}
   <a class="parent-profile__logout" href="/logout">Logout</a>
 </section>
 
 <section class="parent-profile__anchors">
   <a class="parent-profile__links" href="/add_child_page">Add child</a>
-  <a class="parent-profile__links" href="/add_da_page"><button type="button" name="button">Add DA</button></a>
+  <a class="parent-profile__links" href="/add_da_page">Add designated adult</a>
   <a class="parent-profile__links" href="/schedule_pickup">Schedule a pickup</a>
 </section>
 
@@ -22,6 +25,6 @@
   </ul>
 {{/each}}
 {{else}}
-  <h3>You currently have no scheduled pickups.</h3>
+  <p class="scheduled__pickup__parent-none">You currently have no scheduled pickups.</p>
 {{/if}}
 </section>

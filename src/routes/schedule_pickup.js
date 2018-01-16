@@ -9,25 +9,29 @@ const {
 
 
 exports.post = (req, res) => {
-  parent_child_da_id(req.session.parent_id, req.body.child_name, req.body.da_name).then((queryRes) => {
+  parent_child_da_id(req.session.parent_id, req.body.child_name, req.body.da_name)
+  .then((queryRes) => {
       return queryRes;
-    }).then(queryRes => {
+    })
+  .then(queryRes => {
       const schedule_info = {};
-      schedule_info.parent_id = req.session.parent_id,
+        schedule_info.parent_id = req.session.parent_id,
         schedule_info.child_id = queryRes[0].child_id,
         schedule_info.da_id = queryRes[0].da_id,
         schedule_info.pickup_date = req.body.pickup_date,
         schedule_info.keyword = req.body.keyword
       return add_pickup(schedule_info);
-    }).then(queryRes => {
+    })
+    .then(queryRes => {
       return get_parent_da_email(queryRes[0].designated_adult_id, queryRes[0].parent_id);
-    }).then((emails) => {
+    })
+    .then((emails) => {
       parent_pickup_confirmation_email(emails[0].email);
       da_pickup_confirmation_email(emails[0].da_email, req.body.keyword);
-    return;
+      return;
     })
     .then(() => {
-      req.flash('success', `Your pickup schedule has been added. Your keyword is ${req.body.keyword}`)
+      req.flash('success', `Your pickup schedule has been added. Your keyword is ${req.body.keyword}.`)
       res.redirect('parent_profile')
     })
     .catch((err) => {
@@ -35,6 +39,6 @@ exports.post = (req, res) => {
         layout: 'error',
         statusCode: 500,
         errorMessage: 'Server Error',
-      })
-    })
+      });
+    });
 }

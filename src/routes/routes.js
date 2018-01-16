@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
 const {registerSchool, verifySchool} = require('./register_school')
-const login_parent = require('./parent_profile');
+const login_parent = require('./parent_login');
 const add_designated_adult = require('./add_designated_adult');
 const all_schools = require('../queries/all_schools');
 const error = require('./error');
@@ -13,7 +13,7 @@ const schedule_pickup = require('./schedule_pickup')
 const parent_children_and_da = require('../queries/parent_children_and_da');
 const {unique_names} = require('../validators');
 const school_login = require('./school_login');
-
+const search_pickups_parent = require('../queries/search_pickups_parent');
 const checkCookie = (req, res, renderPage) => {
   if (req.session.loggedin) {
     res.render(renderPage)
@@ -48,7 +48,24 @@ router.get('/parent_registration_form', (req, res) => {
 })
 
 router.get('/parent_profile', (req, res) => {
-   checkCookie(req, res, 'parent_profile');
+    if (req.session.loggedin) {
+      console.log(req.session.name);
+
+  search_pickups_parent(req.session.parent_id).then((queryRes) => {
+    const query_result = JSON.stringify(queryRes);
+    const parse_query_result = JSON.parse(query_result);
+      req.flash("name", req.session.name);
+    res.render('parent_profile', {
+      parse_query_result
+    });
+  })
+} else {
+  res.status(403).render('error', {
+    layout: 'error',
+    statusCode: 403,
+    errorMessage: 'Forbidden path',
+  });
+}
 });
 
 router.post('/login_parent', login_parent.post);
@@ -61,9 +78,7 @@ router.get('/schedule_pickup', (req, res) => {
   parent_children_and_da(req.session.parent_id).then((queryRes) => {
     const query_result = JSON.stringify(queryRes);
     const parse_query_result = JSON.parse(query_result);
-    console.log("queryRes: ", queryRes);
-console.log("children: ", unique_names(parse_query_result, 'child_name'));
-console.log("da: ", unique_names(parse_query_result, 'da_name'));
+
 
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
