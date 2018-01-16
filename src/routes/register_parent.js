@@ -1,5 +1,4 @@
 const add_parent = require("../queries/add_parent");
-// const check_parent = require("check_parent");
 const bcryptjs = require('bcryptjs');
 const check_parent = require('../queries/check_parent');
 const {

@@ -7,7 +7,7 @@ test('tape is working', (t) => {
   t.equal(num, 2, 'should return 2');
   t.end();
 })
-//
+
 // test('check parent exists', (t) => {
 //      runDbBuild().then(() => {
 //        let email = 'k@a.com';
