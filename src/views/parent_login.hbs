@@ -1,9 +1,7 @@
-<header class="header__banner">
-  <h4 class="header__text">HomeSafe</h4>
-</header>
+{{> header_banner}}
 <section class="login-parent">
     <form class="login-parent__form" action="/login_parent" method="post">
-      <h1 class="login-parent__form__heading"> Parent Log in</h1>
+      <h3 class="login-parent__form__heading"> Parent Log in</h3>
       <label for="parent_login_email_input" class="login-parent__form__labels">Email<input type="email" name="parent_email_login" id="parent_login_email_input" class="login-parent__form__inputs" required> </label>
       <label for="parent_login_password_input" class="login-parent__form__labels">Password <input type="password" name="parent_password_login" id="parent_login_password_input" class="login-parent__form__inputs" required> </label>
       <label for="parent_login_submit" class="login-parent__form__inputs"><input type="submit" value="Submit" id="parent_login_submit" class="login-parent__form__submit"> </label>

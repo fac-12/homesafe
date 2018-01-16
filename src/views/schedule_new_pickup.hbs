@@ -1,15 +1,22 @@
+{{> header_banner}}
+
 <section class="add_pickup">
   <form class="add__pickup__form" action="/schedule_pickup" method="post">
+    <h3 class="add__pickup__form__heading">Schedule new pickup</h3>
     <label for="pickup_child" class="add__pickup__labels">Child name</label>
     <select class="add__pickup__select" name="child_name" id="pickup_child">
       {{#each children}}
       <option value="{{this}}">{{this}}</option>
-      {{/each}}
+      {{else}}
+      <option value="No da">No children</option>
+    {{/each}}
     </select>
       <label for="pickup_da" class="add__pickup__labels">Designated adult name</label>
     <select class="add__pickup__select" name="da_name" id="pickup_da">
       {{#each da}}
       <option value="{{this}}">{{this}}</option>
+      {{else}}
+      <option value="No da">No designated adult</option>
       {{/each}}
     </select>
     <label for="pickup_date" class="add__pickup__labels">Pickup date<input type="date" name="pickup_date" class="add__pickup__inputs" id="pickup_date"> </label>

@@ -1,6 +1,4 @@
-<header class="header__banner">
-  <h4 class="header__text">HomeSafe</h4>
-</header>
+{{> header_banner}}
 
 <section>
   {{#if success}}
@@ -12,14 +10,14 @@
 
 <section class="parent-registration">
 <form class="parent-registration__form" action="/register_parent" method="post">
-<h1 class="parent-registeration__form__heading">Parent Register</h1>
+<h3 class="parent-registeration__form__heading">Parent Register</h3>
 <label class="parent-registration__labels" for="parent-registration-firstname">First Name<input type="text" name="first_name" id="parent-registration-firstname" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-lastname">Last Name<input type="text" name="last_name" id="parent-registration-lastname" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-email">Email<input type="email" name="email" id="parent-registration-email" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-password">Password<input type="text" name="password" id="parent-registration-password" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-password">Password<input type="password" name="password" id="parent-registration-password" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-address">Address<input type="text" name="address" id="parent-registration-address" class="parent-registration__inputs" required></label>
 <label class="parent-registration__labels" for="parent-registration-postcode">Postcode<input type="text" name="postcode" id="parent-registration-postcode" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-phone">Phone Number<input type="text" name="phone" id="parent-registration-phone" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-phone">Phone Number<input type="number" name="phone" id="parent-registration-phone" class="parent-registration__inputs" required></label>
 <label for="parent-registration-submit" class="parent-registration__labels"> <input type="submit" value="Register" id="parent-registration-submit" class="parent-registration__submit"> </label>
 </form>
 
