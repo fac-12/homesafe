@@ -7,13 +7,12 @@ const {
   school_registration_verification_email
 } = require('../emails')
 const update_verified_status = require('../queries/update_verified_status')
-let host = "";
+
 const registerSchool = (req, res) => {
   const school_details = req.body;
-  let random_number = Math.floor((Math.random() * 1000000) + 60);
-  host = req.get('host')
+  const random_number = Math.floor((Math.random() * 1000000) + 60);
+  const host = req.get('host')
   let link = `http://${req.get('host')}/verify?id=${random_number}`;
-  console.log(link);
   check_school(school_details.email).then((queryRes) => {
     return new Promise((resolve, reject) => {
       if (queryRes[0].case === true) {
@@ -55,7 +54,6 @@ const registerSchool = (req, res) => {
 }
 
 const verifySchool = (req, res) => {
-  if ((`${req.protocol}://${req.get('host')}`) == (`http://${host}`)) {
     check_verification_number(req.query.id).then((queryRes) => {
       return new Promise((resolve, reject) => {
         if (queryRes[0].verification_number !== req.query.id) {
@@ -77,9 +75,6 @@ const verifySchool = (req, res) => {
         errorMessage: 'Server Error',
       });
     })
-  } else {
-    res.end("unknown link")
-  }
 }
 
 module.exports = {
