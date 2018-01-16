@@ -14,6 +14,8 @@ const parent_children_and_da = require('../queries/parent_children_and_da');
 const {unique_names} = require('../validators');
 const school_login = require('./school_login');
 const search_pickups_parent = require('../queries/search_pickups_parent');
+const pick_date = require('./pick_date');
+
 const checkCookie = (req, res, renderPage) => {
   if (req.session.loggedin) {
     res.render(renderPage)
@@ -49,7 +51,6 @@ router.get('/parent_registration_form', (req, res) => {
 
 router.get('/parent_profile', (req, res) => {
     if (req.session.loggedin) {
-      console.log(req.session.name);
 
   search_pickups_parent(req.session.parent_id).then((queryRes) => {
     const query_result = JSON.stringify(queryRes);
@@ -125,6 +126,7 @@ router.post('/register_parent', register_parent.post)
 router.post('/register_school',(req, res)=>{
   registerSchool(req, res)
 })
+router.post('/pick_date', pick_date.post);
 
 router.get('/verify',(req, res)=>{
   verifySchool(req, res)

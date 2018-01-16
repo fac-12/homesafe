@@ -44,7 +44,6 @@ exports.post = (req, res) => {
           req.flash("name", req.session.name)
 
           const today = today_date();
-          console.log(today);
 
           search_pickups(req.session.school_id, today).then((queryRes) => {
 
