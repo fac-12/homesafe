@@ -5,12 +5,13 @@ const register_parent = require("./register_parent");
 const {registerSchool, verifySchool} = require('./register_school')
 const login_parent = require('./parent_profile');
 const add_designated_adult = require('./add_designated_adult');
+const all_schools = require('../queries/all_schools');
 const error = require('./error');
 
 const add_child = require('./add_child')
 const schedule_pickup = require('./schedule_pickup')
 const parent_children_and_da = require('../queries/parent_children_and_da');
-const unique_names = require('../validators');
+const {unique_names} = require('../validators');
 const school_login = require('./school_login');
 
 const checkCookie = (req, res, renderPage) => {
@@ -62,7 +63,7 @@ router.get('/schedule_pickup', (req, res) => {
     const parse_query_result = JSON.parse(query_result);
 
 
-
+console.log(parse_query_result);
     res.render('schedule_new_pickup', {
       children: unique_names(parse_query_result, 'child_name'),
       da: unique_names(parse_query_result, 'da_name')
@@ -81,7 +82,20 @@ router.post('/schedule_pickup', schedule_pickup.post)
 router.post('/add__child', add_child.post)
 
 router.get('/add_child_page', (req, res) => {
-  checkCookie(req, res, 'add_child');
+  if (req.session.loggedin) {
+  all_schools().then((queryRes)=>{
+    const stringifyQueryRes = JSON.stringify(queryRes);
+    const parseQueryRes = JSON.parse(stringifyQueryRes);
+    console.log(parseQueryRes);
+    res.render('add_child', {schools: parseQueryRes})
+  })
+} else {
+  res.status(403).render('error', {
+    layout: 'error',
+    statusCode: 403,
+    errorMessage: 'Forbidden path',
+  });
+}
 })
 router.get('/add_da_page', (req, res) => {
   checkCookie(req, res, 'add_da');
