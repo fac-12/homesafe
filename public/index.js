@@ -13,7 +13,7 @@ const parent_registration_email = document.getElementById('parent-registration-e
 const parent_email_err = document.getElementById('parent_email_err');
 const parent_phone_err = document.getElementById('parent_phone_err');
 const parent_registration_phone = document.getElementById('parent-registration-phone');
-const view_upcoming = document.getElementById('view_upcoming');
+const view_upcoming = document.getElementsByClassName('parent-profile__links')[0];
 const scheduled_pickup = document.getElementById('scheduled_pickup');
 const anchors = document.getElementById('anchors');
 
@@ -22,14 +22,14 @@ const confirmPassword = (password, confirm_password, display_error, button) => {
    (button.disabled = false,
      display_error.textContent = "");
 }
-
-const strongPassword = (password, display_error, button) => {
-  const regex = new RegExp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$');
-  return !regex.test(password.value) ? display_error.textContent = "Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 6 characters." :
-  (button.disabled = false,
-    display_error.textContent = "");
-}
-
+// 
+// const strongPassword = (password, display_error, button) => {
+//   const regex = new RegExp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$');
+//   return !regex.test(password.value) ? display_error.textContent = "Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 6 characters." :
+//   (button.disabled = false,
+//     display_error.textContent = "");
+// }
+//
 // const emailValid = (email, display_error, button) => {
 //   const regex = new RegExp ('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 //   !regex.test(email.value) ? display_error.textContent = "Please enter a valid email." : button.disabled = false;
@@ -61,6 +61,7 @@ const strongPassword = (password, display_error, button) => {
 // parent_registration_phone.addEventListener('keyup', ()=>{
 //   checkPhone(parent_registration_phone, parent_phone_err, parent_registration_submit)
 // })
+
 const upcomingSchedules = () => {
   console.log("upcoming");
   anchors.classList.add('hide')

@@ -89,7 +89,8 @@ background-color: transparent;
 .login-school__form__heading,
 .login-registeration__form__heading,
 .add__child__form__heading,
-.add__da_form__heading{
+.add__da_form__heading,
+.add__pickup__form__heading{
     color: black;
     font-size:  1.5rem;
     position: relative;
@@ -99,7 +100,8 @@ background-color: transparent;
 .login-school__form__heading::after,
 .login-registeration__form__heading::after,
 .add__child__form__heading::after,
-.add__da_form__heading::after {
+.add__da_form__heading::after,
+.add__pickup__form__heading::after {
   content: "";
   width: 4rem;
   height: 0.2rem;
@@ -113,7 +115,8 @@ background-color: transparent;
 .login-school__form__heading::before,
 .login-registeration__form__heading::before,
 .add__child__form__heading::before,
-.add__da_form__heading::before {
+.add__da_form__heading::before,
+.add__pickup__form__heading::before {
   content: "";
   width: 4rem;
   height: 0.2rem;
@@ -137,7 +140,7 @@ background-color: transparent;
 input[type=text], input[type=email], input[type=password], input[type=number] {
   border: none;
   border-bottom: 0.1rem solid rgba(40, 183, 144, 1);
-  width: 15rem;
+  width: 18rem;
   font-size: 1rem;
   margin: 0.7rem 0;
   padding: 0.3rem 0;
@@ -177,7 +180,11 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
 .login-school__form__heading::before{
   left: 9.6rem;
 }
-
+.register_or_login,
+.login-parent__register-btn,
+.parent-registration__register-btn{
+  color: rgba(46, 98, 115, 1);
+}
 .flash-message-err{
   text-align: center;
 background-color: red;
@@ -187,7 +194,11 @@ color: white;
 padding: 0.5rem;
 }
 
-
+.client__err{
+  color: red;
+  width: 80%;
+  margin: 0 auto;
+}
 /* parent profile */
 
 .parent-profile__header{
@@ -248,19 +259,26 @@ padding: 0.5rem;
   display: none;
 }
 /* add child and add da*/
-.add__child, .add__da{
+.add__child, .add__da, .add__pickup{
   text-align: center;
 }
 .add__child__form__heading,
-.add__da_form__heading{
+.add__da_form__heading,
+.add__pickup__form__heading{
   margin: 1rem 0;
   font-size: 1.3rem;
 }
-.add__child__labels{
+.add__pickup__info{
+  width: 80%;
+    margin: 0 auto;
+    color: rgba(46, 98, 115, 1)
+}
+.add__child__labels,
+.add__pickup__labels{
   display: block;
   color: rgba(46, 98, 115, 1);
 }
-.add__child__select, .add__child-dob{
+.add__child__select, .add__child-dob, .add__pickup__select, .add__pickup-dob{
   border: 2px solid rgba(46, 98, 115, 1);
   background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 93% 0;
   padding: 0.3rem;
@@ -269,10 +287,12 @@ overflow: hidden;
 width: 8rem;
 font-size: 0.8rem;
 margin: 1rem 0;
-
+border-radius: 0.5rem;
+margin-left: 0.3rem;
 }
 .add__child__submit,
-.add__da__submit{
+.add__da__submit,
+.add__pickup__submit{
   color: rgba(60, 217, 122, 1);
     border: 2px solid rgba(60, 217, 122, 1);
     padding: 1rem 2rem;
@@ -281,25 +301,32 @@ margin: 1rem 0;
     border-radius: 4rem;
     font-size: 1.5rem;
 }
-.add__child-dob{
+.add__child-dob, .add__pickup-dob{
   height: 1rem;
 }
 .add__child__back-btn,
-.add__da__back-btn{
+.add__da__back-btn,
+.add__pickup__back-btn{
   text-align: left;
   color: rgba(60, 217, 122, 1);
   margin-left: 1rem;
   font-size: 1.5rem;
 }
 .add__child__form__heading::after{
-  right: 14.6rem;
+  right: 15rem;
 }
 .add__child__form__heading::before{
-  left: 14.6rem;
+  left: 15rem;
 }
 .add__da_form__heading::after{
-  right: 16.3rem;
+  right: 18.3rem;
 }
 .add__da_form__heading::before{
-  left: 16.3rem;
+  left: 18.3rem;
+}
+.add__pickup__form__heading::after{
+  right: 15rem;
+}
+.add__pickup__form__heading::before{
+  left: 15rem;
 }
