@@ -36,6 +36,7 @@ exports.post = (req, res) => {
       }).then(() => {
         return add_parent(parent_details)
       }).then((queryRes) => {
+        console.log(queryRes[0].id);
         req.session.loggedin = true;
         req.session.parent_id = queryRes[0].id;
         res.redirect('/parent_profile')
