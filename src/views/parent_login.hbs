@@ -2,14 +2,14 @@
 {{> flash_messages}}
 <section class="login-parent">
     <form class="login-parent__form" action="/login_parent" method="post">
-      <h3 class="login-parent__form__heading"> Parent Log in</h3>
-      <label for="parent_login_email_input" class="login-parent__form__labels">Email<input type="email" name="parent_email_login" id="parent_login_email_input" class="login-parent__form__inputs" required> </label>
-      <label for="parent_login_password_input" class="login-parent__form__labels">Password <input type="password" name="parent_password_login" id="parent_login_password_input" class="login-parent__form__inputs" required> </label>
+      <h3 class="login-parent__form__heading"> Parent Login</h3>
+      <label for="parent_login_email_input" class="login-parent__form__labels"><input type="email" name="parent_email_login" id="parent_login_email_input" class="login-parent__form__inputs" placeholder="Email" required> </label>
+      <label for="parent_login_password_input" class="login-parent__form__labels"> <input type="password" name="parent_password_login" id="parent_login_password_input" class="login-parent__form__inputs" placeholder="Password" required> </label>
       <label for="parent_login_submit" class="login-parent__form__inputs"><input type="submit" value="Submit" id="parent_login_submit" class="login-parent__form__submit"> </label>
     </form>
-    <p><a href="/">Forgot your password?</a></p>
-
-    <form class="login-parent__form__back_button" action="/user_select" method="get">
+    <a href="/" class="login-parent__buttons__forgot">Forgot your password?</a>
+<a href="/user_select" class="login_parent__buttons__back">Go back</a>
+    <!-- <form class="login-parent__form__back_button" action="/user_select" method="get">
       <label for="back_button" class=><input type="submit" value="Go Back" id="back_button" class="login_parent__buttons__back"> </label>
-    </form>
+    </form> -->
   </section>

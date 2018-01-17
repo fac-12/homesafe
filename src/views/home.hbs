@@ -1,18 +1,15 @@
-
-<div class="background_image">
-  <div class="overlay flex-column">
+<section class="home background_image">
+  <div class="home__container flex-column overlay ">
     <header>
-      <h1 class="home_title">HomeSafe</h1>
-      <p class="home_tagline">A website to help parent's inform their child’s school if someone other than the regular adult will be picking them up.</p>
+      <h1 class="home__title">HomeSafe</h1>
+    </header>
+    <p class="home__tagline">A website to help parent's inform their child’s school if someone other than the regular adult will be picking them up.</p>
     </header>
 
-    <form class="home" action="/user_select" method="get">
-      <label for="login_submit" class=""><input type="submit" value="Login" id="login_submit" class="home_user_login"> </label>
-    </form>
+    <p> <a href="/user_select" class="home__login-link">Login</a> </p>
+
+    <p class="home__register-para"> Don't have an account <a class="home__register-link" href="/user_select_register">register here.</a></p>
 
 
-    <form class="home" action="/user_select_register" method="get">
-      <label for="login_submit" class=""><input type="submit" value="Don't have an account? Sign up here" id="login_submit" class="home_user_submit"> </label>
-    </form>
   </div>
-</div>
+</section>
