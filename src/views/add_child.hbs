@@ -4,8 +4,8 @@
 <section class="add__child">
   <form class="add__child__form" action="/add_child" method="post">
     <h3 class="add__child__form__heading">Add child</h3>
-    <label for="child_first_name" class="add__child__labels">First name <input type="text" name="first_name" class="add__child__inputs" id="child_first_name"> </label>
-    <label for="child_last_name" class="add__child__labels">Last name <input type="text" name="last_name" class="add__child__inputs" id="child_last_name"> </label>
+    <label for="child_first_name" class="add__child__labels"><input type="text" name="first_name" class="add__child__inputs" id="child_first_name" placeholder="First name" required></label>
+    <label for="child_last_name" class="add__child__labels"><input type="text" name="last_name" class="add__child__inputs" id="child_last_name" placeholder="Last name" required></label>
     <label for="child_school_name" class="add__child__labels">School name</label>
     <select class="add__child__select" name="school_name" id="child_school_name">
       {{#each schools}}

@@ -38,8 +38,8 @@ exports.post = (req, res) => {
       })
     })
     .catch((err) => {
-      if (err.message === "this password is incorrect, please try again") {
-        req.flash("success", err.message);
+      if (err.message === "This password is incorrect, please try again.") {
+        req.flash("error_msg", err.message);
         res.redirect("/parent_login_page");
       } else if (err.message === "User doesn't exist, please register.") {
         req.flash("error_msg", err.message)

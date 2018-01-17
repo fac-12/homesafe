@@ -4,22 +4,21 @@
 <section class="parent-registration">
 <form class="parent-registration__form" action="/register_parent" method="post">
 <h3 class="parent-registeration__form__heading">Parent Register</h3>
-<label class="parent-registration__labels" for="parent-registration-firstname">First Name<input type="text" name="first_name" id="parent-registration-firstname" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-lastname">Last Name<input type="text" name="last_name" id="parent-registration-lastname" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-email">Email<input  type="email" name="email" id="parent-registration-email" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-firstname"><input type="text" name="first_name" id="parent-registration-firstname" class="parent-registration__inputs" placeholder="First name" required></label>
+<label class="parent-registration__labels" for="parent-registration-lastname"><input type="text" name="last_name" id="parent-registration-lastname" class="parent-registration__inputs" placeholder="Last name" required></label>
+<label class="parent-registration__labels" for="parent-registration-email"><input  type="email" name="email" id="parent-registration-email" class="parent-registration__inputs" placeholder="Email" required></label>
 <p id="parent_email_err"></p>
-<label class="parent-registration__labels" for="parent-registration-password">Password<input type="password" name="password" id="parent-registration-password" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-password"><input type="password" name="password" id="parent-registration-password" class="parent-registration__inputs" placeholder="Password" required></label>
 <p id="strong_password_err"></p>
-<label class="parent-registration__labels" for="parent-registration-confirm-password">Confirm password<input type="password" name="password" id="parent-registration-confirm-password" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-confirm-password"><input type="password" id="parent-registration-confirm-password" class="parent-registration__inputs" placeholder="Confirm password" required></label>
 <p id="confirm_password_err"></p>
-<label class="parent-registration__labels" for="parent-registration-address">Address<input type="text" name="address" id="parent-registration-address" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-postcode">Postcode<input type="text" name="postcode" id="parent-registration-postcode" class="parent-registration__inputs" required></label>
-<label class="parent-registration__labels" for="parent-registration-phone">Phone Number<input type="number" name="phone" id="parent-registration-phone" class="parent-registration__inputs" required></label>
+<label class="parent-registration__labels" for="parent-registration-address"><input type="text" name="address" id="parent-registration-address" class="parent-registration__inputs" placeholder="Address" required></label>
+<label class="parent-registration__labels" for="parent-registration-postcode"><input type="text" name="postcode" id="parent-registration-postcode" class="parent-registration__inputs" placeholder="Postcode" required></label>
+<label class="parent-registration__labels" for="parent-registration-phone"><input type="number" name="phone" id="parent-registration-phone" class="parent-registration__inputs" placeholder="Phone number" required></label>
 <p id="parent_phone_err"></p>
 <label for="parent-registration-submit" class="parent-registration__labels"> <input type="submit" value="Register" id="parent-registration-submit" class="parent-registration__submit"> </label>
 </form>
 
-<form class="parent-registration_form_back_button" action="/user_select_register" method="get">
-  <label for="back_button" class=""><input type="submit" value="Back" id="back_button" class="parent_registration__buttons__back"> </label>
-</form>
+<a href="/user_select_register" class="parent_registration__buttons__back"> Go back</a>
+
 </section>

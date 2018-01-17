@@ -4,13 +4,11 @@
 <section class="login-school">
     <form class="login-school__form" action="/login_school" method="post">
       <h3 class="login-school__form__heading">School Login</h3>
-      <label for="school_login_email_input" class="login-school__form__labels">Email<input type="email" name="school_Email_Login" id="school_login_email_input" class="login-school__form__inputs" required> </label>
-      <label for="school_login_password_input" class="login-school__form__labels">Password <input type="password" name="school_password_login" id="school_login_password_input" class="login-school__form__inputs" required> </label>
+      <label for="school_login_email_input" class="login-school__form__labels"><input type="email" name="school_Email_Login" id="school_login_email_input" class="login-school__form__inputs" placeholder="Email" required> </label>
+      <label for="school_login_password_input" class="login-school__form__labels"> <input type="password" name="school_password_login" id="school_login_password_input" class="login-school__form__inputs" placeholder="Password" required> </label>
       <label for="school_login_submit" class="login-school__form__inputs"><input type="submit" value="Submit" id="school_login_submit" class="login-school__form__submit"> </label>
     </form>
-    <p><a href="/">Forgot your password?</a></p>
+    <a href="/" class="login-school__form__forgot_button">Forgot your password?</a>
 
-    <form class="login-school__form__back_button" action="/user_select" method="get">
-      <label for="back_button" class=><input type="submit" value="Go Back" class="login_school__buttons__back"></label>
-    </form>
+    <a href="/user_select" class="login-school__form__back">Go back</a>
   </section>

@@ -1,21 +1,22 @@
 {{> header_banner}}
 {{> flash_messages}}
 <section class="parent-profile__header">
-  <h3 class="parent-profile__header__title">Welcome Parent</h3>
-  {{#if name}}
-  <p>{{name}}</p>
-  {{/if}}
+  <h3 class="parent-profile__header__title">Welcome   {{#if name}}
+    <span>{{name}}</span>
+    {{/if}}</h3>
   <a class="parent-profile__logout" href="/logout">Logout</a>
 </section>
 
-<section class="parent-profile__anchors">
-  <a class="parent-profile__links" href="/add_child_page">Add child</a>
-  <a class="parent-profile__links" href="/add_da_page">Add designated adult</a>
-  <a class="parent-profile__links" href="/schedule_pickup">Schedule a pickup</a>
+<section class="parent-profile__anchors" id="anchors">
+    <a href="#" class="parent-profile__links" id="view_upcoming">Upcoming schedules <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  <a class="parent-profile__links" href="/add_child_page">Add child <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  <a class="parent-profile__links" href="/add_da_page">Add designated adult <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  <a class="parent-profile__links" href="/schedule_pickup">Schedule a pickup <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  <a class="parent-profile__links" href="/schedule_pickup">My designated adults<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    <a class="parent-profile__links" href="/schedule_pickup">My children <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 </section>
-
-
-<section class="scheduled__parent">
+<section class="scheduled__pickup" id="scheduled_pickup">
+  <h3 class="scheduled_pickup__heading">Current schedules</h3>
 {{#if parse_query_result}}
 {{#each parse_query_result}}
   <ul class='scheduled__pickup__parent'>
@@ -27,6 +28,7 @@
 {{else}}
   <p class="scheduled__pickup__parent-none">You currently have no scheduled pickups.</p>
 {{/if}}
+  <a href="/parent_profile" class="parent_profile__back">Back</a>
 </section>
 
 <section class="children__details">

@@ -4,36 +4,7 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.home_title {
-  font-size: 50px;
-  color: RGBA(255, 255, 255, 1);
-  text-align: center;
-}
-
-.home_tagline {
-  font-size: 18px;
-  color: RGBA(255, 255, 255, 1);
-}
-
-.home_user_submit, .home__user__back, .login_parent__buttons__back, .login_school__buttons__back, .parent_registration__buttons__back, .login_registration__buttons__back {
-  border: none;
-  background-color: inherit;
-  font-size: 16px;
-}
-
-.home_user_login, .user__select__button {
-  background-color: rgba(46, 98, 115, 0.31);
-  font-size: 1.5rem;
-  color: RGBA(255, 255, 255, 1);
-  border-radius: 100px;
-  radius: 100px;
-  border-width: 3px;
-  border-color: rgba(46, 98, 115, 0.62);
-  width: 205px;
-  height: 72px;
-}
-
-.background_image{
+.background_image {
   height: 100vh;
   background-image: url(./assets/child.jpeg);
   background-size: cover;
@@ -45,7 +16,8 @@
   background-color: rgba(46, 98, 115, 0.4);
   width: 100vw;
 }
-.flex-column, .login-parent, .login-parent__form, .login-school, .login-school__form, .school-registration, .school-registration__form, .parent-registration, .parent-registration__form{
+
+.flex-column, .login-parent, .login-parent__form, .login-school, .login-school__form, .school-registration, .school-registration__form, .parent-registration, .parent-registration__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,32 +25,214 @@
   min-height: 40vh;
 }
 
-.user__select__text {
+.home__title {
+  font-size: 3rem;
   color: RGBA(255, 255, 255, 1);
-  font-size: .8rem;
   text-align: center;
+}
+
+.home__tagline {
+  font-size: 1.2rem;
+  color: RGBA(255, 255, 255, 1);
+  text-align: center;
+}
+
+.home_user_submit, .home__user__back, .login_parent__buttons__back, .login_school__buttons__back, .parent_registration__buttons__back, .login_registration__buttons__back {
+  border: none;
+  background-color: inherit;
+  font-size: 1rem;
+}
+
+.home__login-link, .user__select__button{
+  background-color: rgba(46, 98, 115, 0.31);
+  font-size: 2rem;
+  color: RGBA(255, 255, 255, 1);
+  border-radius: 3rem;
+  border-color: rgba(46, 98, 115, 0.62);
+  padding: 1.5rem 3.5rem;
+}
+
+.home__register-para, .home__register-link{
+  color: RGBA(255, 255, 255, 1);
 }
 
 .header__banner {
-  width: 100vw;
-  background-color:rgba(46, 98, 115, 1);
-  height: 30px;
+  width: 100%;
+  background-color: rgba(46, 98, 115, 1);
   text-align: center;
   color: RGBA(255, 255, 255, 1);
   padding: 0.9rem 0;
+  font-size: 0.7rem;
 }
 
-.login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit {
-  border-color: rgba(60, 217, 122, 1);
-  border-width: 3px;
-  width: 150px;
-  height: 50px;
-  border-radius: 100px;
+.user__select__text {
+  color: RGBA(255, 255, 255, 1);
   font-size: 1.5rem;
-  color: rgba(60, 217, 122, 1);
+  text-align: center;
+  padding: 1rem 0;
+  margin: 1rem 0;
 }
 
-input[type=text], input[type=email], input[type=password] {
-    border: none;
-    border-bottom: 2px solid rgba(40, 183, 144, 1);
+.user__select__back-link, .home__user__back{
+  color: white;
+align-self: right;
+margin-left: 1rem;
+font-size: 1.2rem;
+background-color: transparent;
+}
+
+.login-parent{
+  min-height: 70vh;
+}
+
+.login-parent__form__heading, .parent-registeration__form__heading,
+.login-school__form__heading,
+.login-registeration__form__heading{
+    color: black;
+    font-size:  1.5rem;
+    position: relative;
+}
+
+.login-parent__form__heading::after, .parent-registeration__form__heading::after,
+.login-school__form__heading::after,
+.login-registeration__form__heading::after {
+  content: "";
+  width: 4rem;
+  height: 0.2rem;
+  background-color: #27AE60;
+  position: absolute;
+  top: 0.8rem;
+  right: 8.6rem;
+}
+
+.login-parent__form__heading::before, .parent-registeration__form__heading::before,
+.login-school__form__heading::before,
+.login-registeration__form__heading::before {
+  content: "";
+  width: 4rem;
+  height: 0.2rem;
+  background-color: #27AE60;
+  position: absolute;
+  top: 0.8rem;
+  left: 8.6rem;
+}
+
+.login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit,
+.parent-profile__logout,  .parent_profile__back  {
+  background-color: white;
+  font-size: 2rem;
+  color: rgba(60, 217, 122, 1);
+  border-radius: 3rem;
+  border: 0.2rem solid rgba(60, 217, 122, 1);
+  padding: 0.6rem 2.0rem;
+  margin: 0.9rem 0;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number] {
+  border: none;
+  border-bottom: 0.1rem solid rgba(40, 183, 144, 1);
+  width: 14rem;
+  font-size: 1rem;
+  margin: 0.7rem 0;
+}
+.parent_registration__buttons__back, .login-school__form__back{
+  margin: 2rem 0;
+}
+.login_parent__buttons__back, .login-parent__buttons__forgot, .parent_registration__buttons__back,
+.login-school__form__forgot_button, .login-school__form__back, .login_registration__buttons__back{
+  align-self: right;
+  margin-left: 1rem;
+  color: #27AE60;
+  font-size: 1.2rem;
+}
+
+.login-parent__buttons__forgot, .login-school__form__forgot_button{
+  align-self: center;
+}
+
+.parent-registeration__form__heading, .login-school__form__heading, .login-registeration__form__heading{
+  margin-top: 0.5rem;
+}
+.parent-registeration__form__heading::before,
+.login-registeration__form__heading::before{
+  left: 10.6rem;
+}
+
+.parent-registeration__form__heading::after,
+.login-registeration__form__heading::after{
+  right: 10.6rem;
+}
+
+.login-school__form__heading::after{
+  right: 9.6rem;
+}
+
+.login-school__form__heading::before{
+  left: 9.6rem;
+}
+
+.flash-message-err{
+  text-align: center;
+background-color: red;
+width: 80%;
+margin: 0 auto;
+color: white;
+padding: 0.5rem;
+}
+
+
+/* parent profile */
+
+.parent-profile__header{
+  display: flex;
+  justify-content: space-between;
+}
+.parent-profile__header__title{
+  color: rgba(60, 217, 122, 1);
+  align-self: center;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+.parent-profile__logout{
+  font-size: 1.5rem;
+margin-right: 1rem;
+padding: 0.4rem 1.0rem;
+}
+.parent-profile__links{
+  display: block;
+margin: 1rem 0;
+font-size: 1.5rem;
+color: rgba(46, 98, 115, 1);
+margin: 1rem;
+text-decoration: none;
+border-bottom: 2px solid rgba(46, 98, 115, 1);
+padding: 0.5rem;
+}
+.scheduled__pickup{
+  display: none;
+  position: relative;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.scheduled__pickup__parent{
+  margin: 1rem 0 0 3rem;
+  list-style: none;
+  color: rgba(46, 98, 115, 1);
+}
+.scheduled_pickup__heading{
+  color: rgba(46, 98, 115, 1);
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+ .parent_profile__back {
+   margin-left: 3rem;
+   margin-bottom: 3rem;
+   position: absolute;
+ }
+.fa-chevron-right{
+  float: right;
 }
