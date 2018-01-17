@@ -13,7 +13,6 @@ exports.post = (req, res) => {
     return new Promise((resolve, reject) => {
       if (queryRes[0].case === true) {
         reject(new Error("User already exists, please login"))
-
       } else {
         resolve()
       }
