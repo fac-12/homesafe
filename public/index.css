@@ -87,7 +87,8 @@ background-color: transparent;
 
 .login-parent__form__heading, .parent-registeration__form__heading,
 .login-school__form__heading,
-.login-registeration__form__heading{
+.login-registeration__form__heading,
+.add__child__form__heading{
     color: black;
     font-size:  1.5rem;
     position: relative;
@@ -95,7 +96,8 @@ background-color: transparent;
 
 .login-parent__form__heading::after, .parent-registeration__form__heading::after,
 .login-school__form__heading::after,
-.login-registeration__form__heading::after {
+.login-registeration__form__heading::after,
+.add__child__form__heading::after {
   content: "";
   width: 4rem;
   height: 0.2rem;
@@ -107,7 +109,8 @@ background-color: transparent;
 
 .login-parent__form__heading::before, .parent-registeration__form__heading::before,
 .login-school__form__heading::before,
-.login-registeration__form__heading::before {
+.login-registeration__form__heading::before,
+.add__child__form__heading::before {
   content: "";
   width: 4rem;
   height: 0.2rem;
@@ -135,7 +138,7 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   font-size: 1rem;
   margin: 0.7rem 0;
 }
-.parent_registration__buttons__back, .login-school__form__back{
+.parent_registration__buttons__back, .login-school__form__back, .add__child__form__heading{
   margin: 2rem 0;
 }
 .login_parent__buttons__back, .login-parent__buttons__forgot, .parent_registration__buttons__back,
@@ -235,4 +238,50 @@ padding: 0.5rem;
  }
 .fa-chevron-right{
   float: right;
+}
+
+.children__details, .DA__details{
+  display: none;
+}
+/* add child */
+.add__child{
+  text-align: center;
+}
+.add__child__labels{
+  display: block;
+  color: rgba(46, 98, 115, 1);
+}
+.add__child__select, .add__child-dob{
+  border: 2px solid rgba(46, 98, 115, 1);
+  background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 93% 0;
+  padding: 0.3rem;
+  height: 2rem;
+overflow: hidden;
+width: 8rem;
+font-size: 0.8rem;
+margin: 1rem 0;
+
+}
+.add__child__submit{
+  color: rgba(60, 217, 122, 1);
+    border: 2px solid rgba(60, 217, 122, 1);
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    background-color: white;
+    border-radius: 4rem;
+    font-size: 1.5rem;
+}
+.add__child-dob{
+  height: 1rem;
+}
+.add__child__back-btn{
+  color: rgba(60, 217, 122, 1);
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+.add__child__form__heading::after{
+  right: 14.6rem;
+}
+.add__child__form__heading::before{
+  left: 14.6rem;
 }
