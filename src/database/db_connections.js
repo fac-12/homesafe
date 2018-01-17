@@ -6,7 +6,7 @@ let options = {};
 let DATABASE_URL = process.env.DATABASE_URL;
 if (process.env.NODE_ENV === "test") {
   DATABASE_URL = process.env.TEST_DB_URL;
-} else if (process.env.TRAVIS) {
+} else if (process.env.TRAVIS === true) {
   options = {
     database: 'travis_ci_test'
   }
@@ -28,5 +28,5 @@ const [username, password] = params.auth.split(':');
 options.ssl = options.host !== 'localhost';
 }
 
-console.log(options);
+console.log(options, 'MMMM<<<<<<');
 module.exports = pgp(options);
