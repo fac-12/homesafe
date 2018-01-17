@@ -5,8 +5,11 @@
   <form class="school-registration__form" action="/register_school" method="post">
     <h3 class="login-registeration__form__heading">School Register</h3>
     <label class="school-registration__labels" for="school-registration-name">Name<input type="text" name="name" id="school-registration-name" class="school-registration__inputs" required></label>
+    <p id="school_email_err"></p>
     <label class="school-registration__labels" for="school-registration-email">Email<input type="email" name="email" id="school-registration-email" class="school-registration__inputs" required></label>
+    <p id="strong_password_err"></p>
     <label class="school-registration__labels" for="school-registration-password">Password<input type="password" name="password" id="school-registration-password" class="school-registration__inputs" required></label>
+    <p id="confirm_password_err"></p>
     <label class="school-registration__labels" for="school-registration-confirm-password">Confirm Password<input type="password" id="school-registration-confirm-password" class="school-registration__inputs" required></label>
     <label for="school-registration-submit" class="school-registration__labels"> <input type="submit" value="Register" id="school-registration-submit" class="school-registration__submit"> </label>
   </form>
