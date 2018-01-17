@@ -15,7 +15,6 @@ exports.post = (req, res) => {
       if (queryRes[0].case === true) {
         console.log("Parent not exists: ", queryRes[0].case);
         reject(new Error("User already exists, please login"))
-
       } else {
           console.log("Parent exists: ", queryRes[0].case);
         resolve()

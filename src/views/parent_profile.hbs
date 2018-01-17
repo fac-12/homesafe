@@ -30,3 +30,29 @@
 {{/if}}
   <a href="/parent_profile" class="parent_profile__back">Back</a>
 </section>
+
+<section class="children__details">
+{{#if parse_query_result}}
+{{#each parse_query_result}}
+  <ul class='children__details__list'>
+    <li class='children__details__name'>Name: {{this.first_name}}</li>
+    <li class='children__details__lastname'>Last Name: {{this.last_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <p class="children_details-none">You currently have no children added.</p>
+{{/if}}
+</section>
+
+<section class="DA__details">
+{{#if parse_query_result}}
+{{#each parse_query_result}}
+  <ul class='DA__details__list'>
+    <li class='DA__details__name'>Name: {{this.first_name}}</li>
+    <li class='DA__details__lastname'>Last Name: {{this.last_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <p class="DA_details-none">You currently have no designate adults added.</p>
+{{/if}}
+</section>
