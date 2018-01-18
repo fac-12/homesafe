@@ -6,7 +6,6 @@ exports.post = (req, res) => {
 
   if (req.session.loggedin === true) {
     const adult_details = req.body;
-    console.log(req.session);
     adult_details.parent_id = req.session.parent_id;
     add_designated_adult(adult_details).then(() => {
 
