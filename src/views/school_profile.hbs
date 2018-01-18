@@ -1,7 +1,9 @@
 {{> header_banner}}
 {{> flash_messages}}
-<section>
-  <h3>Welcome</h3>
+<section class="school-profileheader">
+  <h3 class="school-profileheadertitle">Welcome</h3>
+  <a class="school-profilelogout" href="/logout">Logout</a>
+
 </section>
 
 <form class="school__profile__form" action="/pick_date" method="post">
@@ -23,5 +25,3 @@
   <h3>There are currently no scheduled pickups organised.</h3>
 {{/if}}
 </section>
-
-<a class="school-profile__logout" href="/logout">Logout</a>

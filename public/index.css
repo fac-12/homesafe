@@ -330,3 +330,47 @@ margin-left: 0.3rem;
 .add__pickup__form__heading::before{
   left: 15rem;
 }
+
+/* SCHOOL PROFILE PAGE */
+
+.school-profileheader {
+  display: flex;
+  justify-content: space-between;
+}
+.school-profileheadertitle {
+  color: rgba(60, 217, 122, 1);
+  align-self: center;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.school-profilelogout{
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  padding: 0.4rem 1.0rem;
+}
+
+.school__profile__form {
+    margin: 1rem;
+}
+
+.school-profilelabel {
+    border: 0.1rem solid rgba(60, 217, 122, 1);
+    padding: 0 1rem;
+}
+
+.school__profile__form {
+    margin: 1rem;
+    text-align: center;
+    list-style: none;
+}
+
+.school__profile__form__submit {
+  border: 0.1rem solid rgba(60, 217, 122, 1);
+  background-color: white;
+  padding: 0.2rem;
+}
+
+.scheduled__school {
+  text-align: center;
+}
