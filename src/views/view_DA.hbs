@@ -3,12 +3,13 @@
 <section class="parent-profile__header">
   <h3 class="parent-profile__header__title">Welcome   {{#if name}}
     <span>{{name}}</span>
-    {{/if}}
+    {{/if}}</h3>
   <a class="parent-profile__logout" href="/logout">Logout</a>
 </section>
 
 
 <section class="DA__details">
+  <h3 class='DA__details_heading'>My Designated Adults</h3>
 {{#if parse_query_result}}
 {{#each parse_query_result}}
   <ul class='DA__details__list'>
@@ -19,4 +20,5 @@
 {{else}}
   <p class="DA_details-none">You currently have no designate adults added.</p>
 {{/if}}
+<a href="/parent_profile" class="DA__details__back">Back</a>
 </section>
