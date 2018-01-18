@@ -41,7 +41,7 @@ const unprotectedRoutes = [
 ]
 unprotectedRoutes.forEach(unprotectedRoute => {
   test('All routes should return 200', t => {
-    request(app)
+    request('http://homesafefac.herokuapp.com')
       .get(`${unprotectedRoute}`)
       .expect(200)
       .expect('Content-Type', 'text/html; charset=utf-8')
