@@ -19,7 +19,7 @@ const protectedRoutes = [
 
 protectedRoutes.forEach(protectedRoute => {
   test('All routes should return 403 if you don\'t have a valid cookie', t => {
-    request(app)
+    request('http://homesafefac.herokuapp.com')
       .get(`${protectedRoute}`)
       .expect(403)
       .expect('Content-Type', 'text/html; charset=utf-8')
@@ -31,7 +31,7 @@ protectedRoutes.forEach(protectedRoute => {
 })
 
 const unprotectedRoutes = [
-  'http://homesafefac.herokuapp.com/',
+  '/',
   '/school_login_page',
   '/parent_login_page',
   '/user_select',
