@@ -64,7 +64,7 @@ router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post);
 router.post('/add_child', add_child.post);
 router.post('/login_school', school_login.post);
-router.post('/add_da', add_designated_adult.post);
+router.post('/add__da', add_designated_adult.post);
 router.post('/schedule_pickup', schedule_pickup.post);
 router.post('/register_parent', register_parent.post)
 router.post('/register_school',(req, res)=>{
