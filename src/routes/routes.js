@@ -94,7 +94,9 @@ router.get('/verify',(req, res)=>{
   verifySchool(req, res)
 })
 router.get('/school_profile', (req, res)=>{
-  checkCookie(req, res, 'school_profile')
+  res.render('school_profile', {
+    name : req.session.name
+  })
 })
 router.get('/logout', (req, res) => {
   req.session = null;
