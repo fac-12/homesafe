@@ -13,6 +13,8 @@ const school_login = require('./school_login');
 const pick_date = require('./pick_date');
 const add_child_page = require('./add_child_page');
 const get_schedule_pickups = require('./get_schedule_pickups');
+const view_DA = require('./view_DA');
+
 const get_children_details = require('../queries/get_children_details')
 const upcoming_schedules = require('./upcoming_schedules');
 
@@ -37,9 +39,7 @@ router.get('/user_select_register', (req, res) => {
 router.get('/parent_registration_form', (req, res) => {
   res.render('parent_registration_form')
 })
-router.get('/view_DA', (req, res) => {
-  res.render('parent_registration_form')
-})
+router.get('/view_DA', view_DA.get);
 
 
 router.get('/parent_profile', (req, res) => {
