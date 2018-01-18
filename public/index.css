@@ -126,6 +126,7 @@ background-color: transparent;
   left: 8.6rem;
 }
 
+
 .login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit,.parent-profile__logout,  .my_children__back ,.parent-profile__logout,  .parent_profile__back, .upcoming_schedules__back,.DA__details__back  {
   background-color: white;
   font-size: 2rem;
@@ -276,7 +277,7 @@ padding: 0.5rem;
   display: block;
   color: rgba(46, 98, 115, 1);
 }
-.add__child__select, .add__child-dob, .add__pickup__select, .add__pickup-dob{
+.add__child__select, .add__child-dob, .add__pickup__select, .add__pickup-dob, .school__profile__date {
   border: 2px solid rgba(46, 98, 115, 1);
   background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 93% 0;
   padding: 0.3rem;
@@ -299,7 +300,7 @@ margin-left: 0.3rem;
     border-radius: 4rem;
     font-size: 1.5rem;
 }
-.add__child-dob, .add__pickup-dob{
+.add__child-dob, .add__pickup-dob, .school__profile__date {
   height: 1rem;
 }
 .add__child__back-btn,
@@ -327,4 +328,66 @@ margin-left: 0.3rem;
 }
 .add__pickup__form__heading::before{
   left: 15rem;
+}
+
+/* SCHOOL PROFILE PAGE */
+
+.school-profileheader {
+  display: flex;
+  justify-content: space-between;
+}
+.school-profileheadertitle {
+  color: rgba(60, 217, 122, 1);
+  align-self: center;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.school-profilelogout{
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  padding: 0.4rem 1.0rem;
+}
+
+.school__profile__form, {
+    margin: 1rem;
+}
+
+.school__profile__submit {
+  padding: 1rem;
+}
+
+.school-profilelabel {
+    border: 0.1rem solid rgba(60, 217, 122, 1);
+    padding: 0 1rem;
+}
+
+.school__profile__form {
+    margin: 1rem;
+    text-align: center;
+    list-style: none;
+}
+
+.school__profile__form__submit {
+  border: 0.1rem solid rgba(60, 217, 122, 1);
+  color: rgba(60, 217, 122, 1);
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+}
+
+.scheduled__schoolheader {
+  position: relative;
+  margin: 1rem 0 0 3rem;
+  list-style: none;
+  color: rgba(46, 98, 115, 1);
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.scheduled__pickup__school {
+    margin: 1rem 0 0 3rem;
+    list-style: none;
+    color: rgba(46, 98, 115, 1);
 }
