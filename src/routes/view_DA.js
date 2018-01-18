@@ -11,7 +11,6 @@ exports.get = (req, res) => {
         })
       })
       .catch((err) => {
-        console.log(err.message);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,
