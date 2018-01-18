@@ -1,10 +1,5 @@
 'use strict';
 
-var sayHello = function sayHello() {
-  console.log("hello!");
-};
-sayHello();
-
 var parent_password = document.getElementById('parent-registration-password');
 var parent_registration_submit = document.getElementById('parent-registration-submit');
 var parent_password_input = document.getElementById('parent-registration-password');
