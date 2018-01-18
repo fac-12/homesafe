@@ -44,8 +44,10 @@ router.get('/view_DA', view_DA.get);
 
 
 router.get('/parent_profile', (req, res) => {
-    checkCookie(req,res,'parent_profile');
+  res.render('parent_profile', {
+    name : req.session.name
   })
+})
 
 
 router.get('/view_children', view_children.get);
@@ -75,7 +77,9 @@ router.get('/verify',(req, res)=>{
   verifySchool(req, res)
 })
 router.get('/school_profile', (req, res)=>{
-  checkCookie(req, res, 'school_profile')
+  res.render('school_profile', {
+    name : req.session.name
+  })
 })
 router.get('/logout', (req, res) => {
   req.session = null;

@@ -1,17 +1,15 @@
 {{> header_banner}}
 {{> flash_messages}}
 <section class="parent-profile__header">
-  <h3 class="parent-profile__header__title">Welcome   {{#if name}}
-    <span>{{name}}</span>
-    {{/if}}</h3>
+  <h3 class="parent-profile__header__title">Welcome <span>{{name}}</span></h3>
   <a class="parent-profile__logout" href="/logout">Logout</a>
 </section>
 
 
 <section class="DA__details">
   <h3 class='DA__details_heading'>My Designated Adults</h3>
-{{#if parse_query_result}}
-{{#each parse_query_result}}
+{{#if query_result}}
+{{#each query_result}}
   <ul class='DA__details__list'>
     <li class='DA__details__name'>Name: {{this.first_name}}</li>
     <li class='DA__details__lastname'>Last Name: {{this.last_name}}</li>

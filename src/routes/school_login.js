@@ -48,8 +48,10 @@ exports.post = (req, res) => {
           search_pickups(req.session.school_id, today).then((queryRes) => {
 
             const query_result = JSON.parse(JSON.stringify(queryRes));
+            const name = req.session.name;
             res.render('school_profile', {
-              query_result
+              query_result,
+              name
             });
           })
 

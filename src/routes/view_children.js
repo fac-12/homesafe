@@ -5,7 +5,8 @@ exports.get = (req, res)=>{
   if(req.session.loggedin){
     get_children_details(req.session.parent_id).then((queryRes)=>{
       const parse_query_result = JSON.parse(JSON.stringify(queryRes));
-      res.render('my_children', {my_children: parse_query_result})
+      const name = req.session.name;
+      res.render('my_children', {my_children: parse_query_result, name})
     }).catch((err)=>{
       res.status(500).render('error', {
         layout: 'error',
