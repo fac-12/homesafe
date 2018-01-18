@@ -4,9 +4,10 @@ exports.get = (req, res) => {
   if (req.session.loggedin) {
     search_pickups_parent(req.session.parent_id).then((queryRes) => {
       const query_result = JSON.parse(JSON.stringify(queryRes));
-      req.flash("name", req.session.name);
+      const name = req.session.name;
       res.render('upcoming_schedules', {
-        query_result
+        query_result,
+        name
       });
     });
   } else {

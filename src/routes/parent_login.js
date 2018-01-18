@@ -31,7 +31,7 @@ exports.post = (req, res) => {
         if (bcryptResponse) {
           req.session.loggedin = true;
           req.flash("name", req.session.name)
-          res.redirect('parent_profile')
+          res.redirect('parent_profile');
         } else {
           reject(new Error("This password is incorrect, please try again."));
         }

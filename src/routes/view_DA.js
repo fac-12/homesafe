@@ -5,8 +5,10 @@ exports.get = (req, res) => {
     get_DA_details(req.session.parent_id)
       .then((queryRes) => {
         const parse_query_result = JSON.parse(JSON.stringify(queryRes));
+        const name = req.session.name;
         res.render('view_DA', {
-          parse_query_result
+          parse_query_result,
+          name
         })
       })
       .catch((err) => {
