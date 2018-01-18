@@ -391,3 +391,12 @@ margin-left: 0.3rem;
     list-style: none;
     color: rgba(46, 98, 115, 1);
 }
+
+/* error */
+
+.error {
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  color: rgba(46, 98, 115, 1);
+  text-align: center;
+}
