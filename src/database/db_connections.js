@@ -40,7 +40,6 @@ if (process.env.TRAVIS === 'true') {
   options = {
     database: 'travis_ci_test'
 }
-  console.log(options);
   } else {
     if (!DATABASE_URL && process.env.TRAVIS != 'true') {
       throw new Error("Enviroment variable DATABASE_URL must be set");
