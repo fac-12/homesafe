@@ -1,0 +1,24 @@
+{{> header_banner}}
+{{> flash_messages}}
+<section class="parent-profile__header">
+  <h3 class="parent-profile__header__title">Welcome   {{#if name}}
+    <span>{{name}}</span>
+    {{/if}}</h3>
+  <a class="parent-profile__logout" href="/logout">Logout</a>
+</section>
+
+<section class="scheduled__pickup" id="scheduled_pickup">
+  <h3 class="scheduled_pickup__heading">Current schedules</h3>
+{{#if query_result}}
+{{#each query_result}}
+  <ul class='scheduled__pickup__parent'>
+    <li class='pickup__parent__date'>Date: {{formatDate this.pickup_date}}</li>
+    <li class='pickup__parent__child'>Child: {{this.child_name}}</li>
+    <li class='pickup__parent__da'>Designated adult: {{this.da_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <p class="scheduled__pickup__parent-none">You currently have no scheduled pickups.</p>
+{{/if}}
+  <a href="/parent_profile" class="upcoming_schedules__back">Back</a>
+</section>
