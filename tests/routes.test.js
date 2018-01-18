@@ -2,9 +2,6 @@ const request = require('supertest');
 const app = require('../src/app.js');
 const test = require('tape');
 
-
-
-
 const protectedRoutes = [
   '/view_DA',
   '/parent_profile',
