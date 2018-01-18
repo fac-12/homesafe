@@ -1,0 +1,23 @@
+{{> header_banner}}
+{{> flash_messages}}
+<section class="parent-profile__header">
+  <h3 class="parent-profile__header__title">Welcome   {{#if name}}
+    <span>{{name}}</span>
+    {{/if}}</h3>
+  <a class="parent-profile__logout" href="/logout">Logout</a>
+</section>
+
+<section class="children__details">
+  <h3 class="children__details__heading">My children</h3>
+{{#if my_children}}
+{{#each my_children}}
+  <ul class='children__details__list'>
+    <li class='children__details__name'>First Name: {{this.first_name}}</li>
+    <li class='children__details__lastname'>Last Name: {{this.last_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <p class="children_details-none">You currently have no children added.</p>
+{{/if}}
+<a href="/parent_profile" class="my_children__back">Back</a>
+</section>

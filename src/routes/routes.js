@@ -14,7 +14,7 @@ const search_pickups_parent = require('../queries/search_pickups_parent');
 const pick_date = require('./pick_date');
 const add_child_page = require('./add_child_page');
 const get_schedule_pickups = require('./get_schedule_pickups');
-
+const get_children_details = require('../queries/get_children_details')
 
 
 router.get('/', (req, res) => {
@@ -41,6 +41,7 @@ router.get('/view_DA', (req, res) => {
   res.render('parent_registration_form')
 })
 
+
 router.get('/parent_profile', (req, res) => {
     if (req.session.loggedin) {
 
@@ -59,6 +60,27 @@ router.get('/parent_profile', (req, res) => {
   });
 }
 });
+
+router.get('/view_children', (req, res)=>{
+  if(req.session.loggedin){
+    get_children_details(req.session.parent_id).then((queryRes)=>{
+      console.log(queryRes);
+      const parse_query_result = JSON.parse(JSON.stringify(queryRes));
+      console.log(parse_query_result);
+      res.render('my_children', {my_children: parse_query_result})
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
+  else {
+    res.status(403).render('error', {
+      layout: 'error',
+      statusCode: 403,
+      errorMessage: 'Forbidden path',
+    });
+  }
+
+})
 
 router.post('/login_parent', login_parent.post);
 router.post('/register_parent', register_parent.post);
