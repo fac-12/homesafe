@@ -37,13 +37,15 @@ router.get('/user_select_register', (req, res) => {
 router.get('/parent_registration_form', (req, res) => {
   res.render('parent_registration_form')
 })
+router.get('/view_DA', (req, res) => {
+  res.render('parent_registration_form')
+})
 
 router.get('/parent_profile', (req, res) => {
     if (req.session.loggedin) {
 
   search_pickups_parent(req.session.parent_id).then((queryRes) => {
-    const query_result = JSON.stringify(queryRes);
-    const parse_query_result = JSON.parse(query_result);
+    const parse_query_result = JSON.parse(JSON.stringify(queryRes));
       req.flash("name", req.session.name);
     res.render('parent_profile', {
       parse_query_result

@@ -8,15 +8,12 @@ const {
 
 exports.post = (req, res) => {
   const parent_details = req.body;
-  console.log("parent_details: ", parent_details);
   check_parent(parent_details.email)
   .then((queryRes) => {
     return new Promise((resolve, reject) => {
       if (queryRes[0].case === true) {
-        console.log("Parent not exists: ", queryRes[0].case);
         reject(new Error("User already exists, please login"))
       } else {
-          console.log("Parent exists: ", queryRes[0].case);
         resolve()
       }
     })
@@ -42,11 +39,9 @@ exports.post = (req, res) => {
     parent_details.password = bcryptres;
   })
   .then(() => {
-    console.log("adding parent");
     return add_parent(parent_details)
   })
   .then((queryRes) => {
-    console.log(req.session);
     req.session.loggedin = true;
     req.session.parent_id = queryRes[0].id;
     req.session.name = req.body.first_name;
@@ -55,17 +50,17 @@ exports.post = (req, res) => {
   .catch((err) => {
     if (err.message === "User already exists, please login") {
       req.flash("error_msg", err.message);
-      res.redirect('/parent_profile')
+      res.redirect('/parent_login_page')
     } else if (err.message === "Please make sure you have entered a valid email.") {
       req.flash("error_msg", err.message)
       res.redirect('/parent_registration_form')
     }
-    // else {
-    //   res.status(500).render('error', {
-    //     layout: 'error',
-    //     statusCode: 500,
-    //     errorMessage: 'Server Error',
-    //   });
-  //  }
+    else {
+      res.status(500).render('error', {
+        layout: 'error',
+        statusCode: 500,
+        errorMessage: 'Server Error',
+      });
+   }
   })
 }
