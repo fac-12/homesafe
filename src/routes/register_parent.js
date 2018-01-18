@@ -50,7 +50,7 @@ exports.post = (req, res) => {
   .catch((err) => {
     if (err.message === "User already exists, please login") {
       req.flash("error_msg", err.message);
-      res.redirect('/parent_login_page')
+      res.redirect('/parent_registration_form')
     } else if (err.message === "Please make sure you have entered a valid email.") {
       req.flash("error_msg", err.message)
       res.redirect('/parent_registration_form')

@@ -6,15 +6,17 @@
     <h3 class="add__child__form__heading">Add child</h3>
     <label for="child_first_name" class="add__child__labels"><input type="text" name="first_name" class="add__child__inputs" id="child_first_name" placeholder="First name" required></label>
     <label for="child_last_name" class="add__child__labels"><input type="text" name="last_name" class="add__child__inputs" id="child_last_name" placeholder="Last name" required></label>
-    <label for="child_school_name" class="add__child__labels">School name</label>
-    <select class="add__child__select" name="school_name" id="child_school_name">
-      {{#each schools}}
-      <option value="{{this.name}}">{{this.name}}</option>
-      {{/each}}
-    </select>
-    <label for="child_year" class="add__child__labels">Year <input type="number" name="year" class="add__child__inputs" id="child_year"> </label>
-    <label for="child_dob" class="add__child__labels">Date of birth <input type="date" name="dob" class="add__child__inputs" id="child_dob"> </label>
-    <label for="submitBtn"> <input type="submit" value="Add child"> </label>
+    <label for="child_school_name" class="add__child__labels">School name
+      <select class="add__child__select" name="school_name" id="child_school_name">
+        {{#each schools}}
+        <option value="{{this.name}}">{{this.name}} <i class="fa fa-caret-down" aria-hidden="true"></i> </option>
+        {{/each}}
+      </select>
+    </label>
+
+    <label for="child_year" class="add__child__labels"><input type="number" name="year" class="add__child__inputs" id="child_year" placeholder="Year"> </label>
+    <label for="child_dob" class="add__child__labels">Date of birth <input type="date" name="dob" class="add__child__inputs add__child-dob" id="child_dob"> </label>
+    <label for="submitBtn"> <input type="submit" value="Add child" class="add__child__submit"> </label>
   </form>
 </section>
-  <a href="/parent_profile">Back</a>
+  <a href="/parent_profile" class="add__child__back-btn">Go back</a>

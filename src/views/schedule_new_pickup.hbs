@@ -2,25 +2,26 @@
 {{> flash_messages}}
 
 
-<section class="add_pickup">
+<section class="add__pickup">
   <form class="add__pickup__form" action="/schedule_pickup" method="post">
-    <h3 class="add__pickup__form__heading">Schedule new pickup</h3>
-      <p>Please make sure you have at least one child and designated adult added before you try to schedule a pickup which is why both fields are empty.</p>
-    <label for="pickup_child" class="add__pickup__labels">Child name</label>
-    <select class="add__pickup__select" name="child_name" id="pickup_child" required>
-      {{#each children}}
-      <option value="{{this}}">{{this}}</option>
-    {{/each}}
-    </select>
+    <h3 class="add__pickup__form__heading">Schedule pickup</h3>
+      <p class="add__pickup__info">Please make sure you have at least one child and designated adult added before you try to schedule a pickup which is why both fields are empty.</p>
+    <label for="pickup_child" class="add__pickup__labels">Child name   <select class="add__pickup__select" name="child_name" id="pickup_child" required>
+        {{#each children}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+      </select></label>
+
       <label for="pickup_da" class="add__pickup__labels">Designated adult name</label>
     <select class="add__pickup__select" name="da_name" id="pickup_da" required>
       {{#each da}}
       <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
-    <label for="pickup_date" class="add__pickup__labels">Pickup date<input type="date" name="pickup_date" class="add__pickup__inputs" id="pickup_date" required> </label>
-    <label for="pickup_keyword" class="add__pickup__labels"> Keyword <input type="text" name="keyword" class="add__pickup__inputs" id="pickup_keyword" required> </label>
-    <label for="submitBtn"> <input type="submit" value="Schedule pickup"> </label>
+    <label for="pickup_date" class="add__pickup__labels">Pickup date<input type="date" name="pickup_date" class="add__pickup__inputs add__pickup-dob" id="pickup_date" required> </label>
+    <p class="add__pickup__info">Please enter a secure word that the carer would repeat to school when picking your child up.</p>
+    <label for="pickup_keyword" class="add__pickup__labels"><input type="text" name="keyword" class="add__pickup__inputs" id="pickup_keyword" placeholder="Keyword" required> </label>
+    <label for="submitBtn"> <input type="submit" value="Schedule pickup" class="add__pickup__submit"> </label>
   </form>
-  <a href="/parent_profile">Back</a>
 </section>
+  <a href="/parent_profile" class="add__pickup__back-btn">Go back</a>
