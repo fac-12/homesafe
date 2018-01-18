@@ -255,9 +255,7 @@ padding: 0.5rem;
   float: right;
 }
 
-.children__details, .DA__details{
-  display: none;
-}
+
 /* add child and add da*/
 .add__child, .add__da, .add__pickup{
   text-align: center;

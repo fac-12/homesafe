@@ -1,0 +1,22 @@
+{{> header_banner}}
+{{> flash_messages}}
+<section class="parent-profile__header">
+  <h3 class="parent-profile__header__title">Welcome   {{#if name}}
+    <span>{{name}}</span>
+    {{/if}}
+  <a class="parent-profile__logout" href="/logout">Logout</a>
+</section>
+
+
+<section class="DA__details">
+{{#if parse_query_result}}
+{{#each parse_query_result}}
+  <ul class='DA__details__list'>
+    <li class='DA__details__name'>Name: {{this.first_name}}</li>
+    <li class='DA__details__lastname'>Last Name: {{this.last_name}}</li>
+  </ul>
+{{/each}}
+{{else}}
+  <p class="DA_details-none">You currently have no designate adults added.</p>
+{{/if}}
+</section>
