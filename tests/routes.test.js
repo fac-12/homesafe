@@ -31,7 +31,7 @@ protectedRoutes.forEach(protectedRoute => {
 })
 
 const unprotectedRoutes = [
-  '/',
+  'http://homesafefac.herokuapp.com/',
   '/school_login_page',
   '/parent_login_page',
   '/user_select',
