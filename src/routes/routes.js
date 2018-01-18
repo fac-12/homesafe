@@ -43,7 +43,7 @@ router.get('/view_DA', view_DA.get);
 
 
 router.get('/parent_profile', (req, res) => {
-    res.render('parent_profile')
+    checkCookie(req,res,'parent_profile');
   })
 
 
