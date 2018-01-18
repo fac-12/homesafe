@@ -28,5 +28,4 @@ const [username, password] = params.auth.split(':');
 options.ssl = options.host !== 'localhost';
 }
 
-console.log(options, 'MMMM<<<<<<');
 module.exports = pgp(options);

@@ -127,7 +127,7 @@ background-color: transparent;
 }
 
 .login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit,
-.parent-profile__logout,  .parent_profile__back  {
+.parent-profile__logout,  .parent_profile__back, .upcoming_schedules__back  {
   background-color: white;
   font-size: 2rem;
   color: rgba(60, 217, 122, 1);
@@ -227,7 +227,6 @@ border-bottom: 2px solid rgba(46, 98, 115, 1);
 padding: 0.5rem;
 }
 .scheduled__pickup{
-  display: none;
   position: relative;
 }
 .show{
