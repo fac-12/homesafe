@@ -5,6 +5,8 @@ const checkParent = require('../src/queries/check_parent');
 const checkSchool = require('../src/queries/check_school');
 const addSchool = require('../src/queries/add_school');
 
+
+
 test('tape is working', (t) => {
   const num = 2;
   t.equal(num, 2, 'should return 2');
