@@ -5,7 +5,7 @@
 <section class="add__pickup">
   <form class="add__pickup__form" action="/schedule_pickup" method="post">
     <h3 class="add__pickup__form__heading">Schedule pickup</h3>
-      <p class="add__pickup__info">Please make sure you have at least one child and designated adult added before you try to schedule a pickup which is why both fields are empty.</p>
+      <p class="add__pickup__info">At least one child and one designated adult must be added before scheduling a pickup.</p>
     <label for="pickup_child" class="add__pickup__labels">Child name   <select class="add__pickup__select" name="child_name" id="pickup_child" required>
         {{#each children}}
         <option value="{{this}}">{{this}}</option>
@@ -24,4 +24,4 @@
     <label for="submitBtn"> <input type="submit" value="Schedule pickup" class="add__pickup__submit"> </label>
   </form>
 </section>
-  <a href="/parent_profile" class="add__pickup__back-btn">Go back</a>
+  <a href="/parent_profile" class="add__pickup__back-btn">Back</a>

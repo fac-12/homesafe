@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const register_parent = require("./register_parent");
-const {registerSchool, verifySchool} = require('./register_school')
-const {checkCookie} = require('../validators');
+const {
+  registerSchool,
+  verifySchool
+} = require('./register_school')
+const {
+  checkCookie
+} = require('../validators');
 const login_parent = require('./parent_login');
 const add_designated_adult = require('./add_designated_adult');
 const error = require('./error');
@@ -44,9 +49,17 @@ router.get('/view_DA', view_DA.get);
 
 
 router.get('/parent_profile', (req, res) => {
-  res.render('parent_profile', {
-    name : req.session.name
-  })
+  if (req.session.loggedin) {
+    res.render('parent_profile', {
+      name: req.session.name
+    })
+  } else {
+    res.status(403).render('error', {
+      layout: 'error',
+      statusCode: 403,
+      errorMessage: 'Forbidden path',
+    });
+  }
 })
 
 
@@ -59,7 +72,7 @@ router.post('/login_school', school_login.post);
 router.post('/add__da', add_designated_adult.post);
 router.post('/schedule_pickup', schedule_pickup.post);
 router.post('/register_parent', register_parent.post)
-router.post('/register_school',(req, res)=>{
+router.post('/register_school', (req, res) => {
   registerSchool(req, res)
 })
 router.post('/pick_date', pick_date.post);
@@ -70,16 +83,25 @@ router.get('/add_child_page', add_child_page.get);
 router.get('/add_da_page', (req, res) => {
   checkCookie(req, res, 'add_da');
 })
-router.get('/school_registration_form', (req, res)=>{
+router.get('/school_registration_form', (req, res) => {
   res.render('school_registration_form')
 })
-router.get('/verify',(req, res)=>{
+router.get('/verify', (req, res) => {
   verifySchool(req, res)
 })
-router.get('/school_profile', (req, res)=>{
-  res.render('school_profile', {
-    name : req.session.name
-  })
+router.get('/school_profile', (req, res) => {
+  if(req.session.loggedin){
+    res.render('school_profile', {
+      name: req.session.name
+    })
+  } else {
+    res.status(403).render('error', {
+      layout: 'error',
+      statusCode: 403,
+      errorMessage: 'Forbidden path',
+    });
+  }
+
 })
 router.get('/logout', (req, res) => {
   req.session = null;

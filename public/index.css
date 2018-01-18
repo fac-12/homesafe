@@ -50,6 +50,7 @@
   border-radius: 3rem;
   border-color: rgba(46, 98, 115, 0.62);
   padding: 1.5rem 3.5rem;
+  text-decoration: none;
 }
 
 .home__register-para, .home__register-link {
@@ -112,9 +113,9 @@
   left: 8.6rem;
 }
 
-.login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit, .parent-profile__logout, .my_children__back, .parent-profile__logout, .parent_profile__back, .upcoming_schedules__back, .DA__details__back {
+.login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit, .parent-profile__logout, .my_children__back, .parent-profile__logout, .parent_profile__back, .upcoming_schedules__back, .DA__details__back, .add__child__back-btn, .add__pickup__back-btn, .add__da__back-btn, .school-profilelogout {
   background-color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgba(60, 217, 122, 1);
   border-radius: 3rem;
   border: 0.2rem solid rgba(60, 217, 122, 1);
@@ -252,7 +253,7 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   margin-bottom: 2rem;
 }
 
-.my_children__back, .DA__details__back {
+.my_children__back, .DA__details__back, .add__child__back-btn, .add__pickup__back-btn, .add__da__back-btn, .upcoming_schedules__back {
   margin-left: 3rem;
   margin-bottom: 3rem;
   position: absolute;
@@ -435,7 +436,7 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   content: "";
   display: none;
 }
-  .add__child__back-btn, .add__da__back-btn, .add__pickup__back-btn, .upcoming_schedules__back{
+  .add__child__back-btn, .add__da__back-btn, .add__pickup__back-btn, .upcoming_schedules__back,..add__pickup__back-btn{
     margin-left: 25%;
   }
   input[type=text], input[type=email], input[type=password], input[type=number]{
