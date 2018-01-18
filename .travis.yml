@@ -1,15 +1,9 @@
 language: node_js
 node_js:
   - "node"
-  - "8"
 services:
   - postgresql
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-env:
-  - DB_URL=postgres
-  - SH=bash
-  - PACKAGE_VERSION="1.0.*"
-
 notifications:
  -  email: false
