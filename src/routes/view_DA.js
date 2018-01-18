@@ -4,7 +4,6 @@ exports.get = (req, res) => {
   if (req.session.loggedin) {
     get_DA_details(req.session.parent_id)
       .then((queryRes) => {
-        console.log(queryRes,'I am in view_DA');
         const parse_query_result = JSON.parse(JSON.stringify(queryRes));
         const name = req.session.name;
         res.render('view_DA', {
