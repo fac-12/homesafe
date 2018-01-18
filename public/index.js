@@ -1,8 +1,3 @@
-const sayHello = () => {
-  console.log("hello!");
-}
-sayHello();
-
 const parent_password = document.getElementById('parent-registration-password');
 const parent_registration_submit = document.getElementById('parent-registration-submit');
 const parent_password_input = document.getElementById('parent-registration-password')

@@ -86,9 +86,10 @@
 }
 
 .login-parent__form__heading, .parent-registeration__form__heading, .login-school__form__heading, .login-registeration__form__heading, .add__child__form__heading, .add__da_form__heading, .add__pickup__form__heading {
-  color: black;
+  color: rgba(46, 98, 115, 1);
   font-size: 1.5rem;
   position: relative;
+  margin-top: 1rem;
 }
 
 .login-parent__form__heading::after, .parent-registeration__form__heading::after, .login-school__form__heading::after, .login-registeration__form__heading::after, .add__child__form__heading::after, .add__da_form__heading::after, .add__pickup__form__heading::after {
@@ -126,8 +127,9 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   border-bottom: 0.1rem solid rgba(40, 183, 144, 1);
   width: 18rem;
   font-size: 1rem;
-  margin: 0.7rem 0;
+  margin: 0.7rem auto;
   padding: 0.3rem 0;
+  display: block;
 }
 
 .parent_registration__buttons__back, .login-school__form__back {
@@ -177,7 +179,14 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   color: white;
   padding: 0.5rem;
 }
-
+.flash-message-success {
+  text-align: center;
+  background-color: green;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  padding: 0.5rem;
+}
 .client__err {
   color: red;
   width: 80%;
@@ -237,6 +246,10 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   color: rgba(46, 98, 115, 1);
   font-size: 1.5rem;
   margin-left: 1rem;
+}
+
+.scheduled__pickup__parent:last-of-type, .children__details__list:last-of-type, .DA__details__list:last-of-type {
+  margin-bottom: 2rem;
 }
 
 .my_children__back, .DA__details__back {
@@ -400,7 +413,40 @@ input[type=text], input[type=email], input[type=password], input[type=number] {
   color: rgba(46, 98, 115, 1);
   text-align: center;
 }
+.DA_details-none, .scheduled__pickup__parent-none, .children_details-none{
+  color: rgba(46, 98, 115, 1);
+  margin: 0.5rem;
+}
 
-@@media screen and (min-width: ) {
-
+@media screen and (min-width: 700px) {
+  .home__tagline {
+    width: 65%;
+    font-size: 1.5rem;
+  }
+  .user__select__back-link, .home__user__back, .login_parent__buttons__back, .login-parent__buttons__forgot, .parent_registration__buttons__back, .login-school__form__forgot_button, .login-school__form__back, .login_registration__buttons__back {
+    width: 65%;
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+  .login-parent__form__heading, .parent-registeration__form__heading, .login-school__form__heading, .login-registeration__form__heading, .add__child__form__heading, .add__da_form__heading, .add__pickup__form__heading{
+    font-size: 2rem;
+  }
+.login-parent__form__heading::before, .parent-registeration__form__heading::before, .login-school__form__heading::before, .login-registeration__form__heading::before, .add__child__form__heading::before, .add__da_form__heading::before, .add__pickup__form__heading::before, .login-parent__form__heading::after, .parent-registeration__form__heading::after, .login-school__form__heading::after, .login-registeration__form__heading::after, .add__child__form__heading::after, .add__da_form__heading::after, .add__pickup__form__heading::after{
+  content: "";
+  display: none;
+}
+  .add__child__back-btn, .add__da__back-btn, .add__pickup__back-btn, .upcoming_schedules__back{
+    margin-left: 25%;
+  }
+  input[type=text], input[type=email], input[type=password], input[type=number]{
+    width: 30rem;
+    font-size: 1.5rem
+  }
+  .add__child__labels, .add__pickup__labels{
+    font-size: 1.2rem;
+  }
+  .add__child__select, .add__child-dob, .add__pickup__select, .add__pickup-dob, .school__profile__date{
+    width: 20rem;
+    font-size: 1.2rem;
+  }
 }

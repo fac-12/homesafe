@@ -20,7 +20,7 @@ const parent_pickup_confirmation_email = (parent_email) => {
 
   transporter.sendMail(parent_email_confirmation, function(error, info) {
     if (error) {
-      console.log(error);
+      throw error;
     } else {
       console.log('Email sent: ' + info.response);
     }

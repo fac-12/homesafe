@@ -50,13 +50,15 @@ router.get('/parent_profile', (req, res) => {
 router.get('/view_children', (req, res)=>{
   if(req.session.loggedin){
     get_children_details(req.session.parent_id).then((queryRes)=>{
-      console.log(queryRes);
       const parse_query_result = JSON.parse(JSON.stringify(queryRes));
-      console.log(parse_query_result);
       res.render('my_children', {my_children: parse_query_result})
-    }).catch((err)=>{
-      console.log(err);
-    })
+    })    .catch((err) => {
+          res.status(500).render('error', {
+            layout: 'error',
+            statusCode: 500,
+            errorMessage: 'Server Error',
+          })
+        });
   }
   else {
     res.status(403).render('error', {
