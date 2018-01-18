@@ -10,7 +10,7 @@ if (process.env.TRAVIS === true) {
     database: 'travis_ci_test'
   };
 } else {
-  if (!DATABASE_URL && process.env.TRAVIS !== 'true') {
+  if (!DATABASE_URL && process.env.TRAVIS !== true) {
     throw new Error("Enviroment variable DATABASE_URL must be set");
   } else if (process.env.NODE_ENV === 'test') {
     DATABASE_URL = process.env.TEST_DB_URL;
