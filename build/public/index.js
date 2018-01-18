@@ -19,10 +19,12 @@ var view_upcoming = document.getElementsByClassName('parent-profile__links')[0];
 var scheduled_pickup = document.getElementById('scheduled_pickup');
 var anchors = document.getElementById('anchors');
 
-var confirmPassword = function confirmPassword(password, confirm_password, display_error, button) {
-  return password.value !== confirm_password.value ? display_error.textContent = "The passwords do not match" : (button.disabled = false, display_error.textContent = "");
-};
-// 
+// const confirmPassword = (password, confirm_password, display_error, button) => {
+//    return password.value !== confirm_password.value ? display_error.textContent = "The passwords do not match" :
+//    (button.disabled = false,
+//      display_error.textContent = "");
+// }
+//
 // const strongPassword = (password, display_error, button) => {
 //   const regex = new RegExp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$');
 //   return !regex.test(password.value) ? display_error.textContent = "Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 6 characters." :
@@ -61,10 +63,3 @@ var confirmPassword = function confirmPassword(password, confirm_password, displ
 // parent_registration_phone.addEventListener('keyup', ()=>{
 //   checkPhone(parent_registration_phone, parent_phone_err, parent_registration_submit)
 // })
-
-var upcomingSchedules = function upcomingSchedules() {
-  console.log("upcoming");
-  anchors.classList.add('hide');
-  scheduled_pickup.classList.add('show');
-};
-view_upcoming.addEventListener('click', upcomingSchedules);

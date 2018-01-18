@@ -127,7 +127,8 @@ background-color: transparent;
 }
 
 .login-parent__form__submit, .login-school__form__submit, .school-registration__submit, .parent-registration__submit,
-.parent-profile__logout,  .parent_profile__back  {
+
+.parent-profile__logout,  .my_children__back ,.parent-profile__logout,  .parent_profile__back, .upcoming_schedules__back  {
   background-color: white;
   font-size: 2rem;
   color: rgba(60, 217, 122, 1);
@@ -227,7 +228,6 @@ border-bottom: 2px solid rgba(46, 98, 115, 1);
 padding: 0.5rem;
 }
 .scheduled__pickup{
-  display: none;
   position: relative;
 }
 .show{
@@ -236,17 +236,19 @@ padding: 0.5rem;
 .hide{
   display: none;
 }
-.scheduled__pickup__parent{
+.scheduled__pickup__parent,
+.children__details__list{
   margin: 1rem 0 0 3rem;
   list-style: none;
   color: rgba(46, 98, 115, 1);
 }
-.scheduled_pickup__heading{
+.scheduled_pickup__heading,
+.children__details__heading{
   color: rgba(46, 98, 115, 1);
     font-size: 1.5rem;
     margin-left: 1rem;
 }
- .parent_profile__back {
+ .my_children__back {
    margin-left: 3rem;
    margin-bottom: 3rem;
    position: absolute;
@@ -255,9 +257,6 @@ padding: 0.5rem;
   float: right;
 }
 
-.children__details, .DA__details{
-  display: none;
-}
 /* add child and add da*/
 .add__child, .add__da, .add__pickup{
   text-align: center;
