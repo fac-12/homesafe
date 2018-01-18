@@ -2,9 +2,6 @@ const request = require('supertest');
 const app = require('../src/app.js');
 const test = require('tape');
 
-
-
-
 const protectedRoutes = [
   '/view_DA',
   '/parent_profile',
@@ -19,7 +16,7 @@ const protectedRoutes = [
 
 protectedRoutes.forEach(protectedRoute => {
   test('All routes should return 403 if you don\'t have a valid cookie', t => {
-    request(app)
+    request('http://homesafefac.herokuapp.com')
       .get(`${protectedRoute}`)
       .expect(403)
       .expect('Content-Type', 'text/html; charset=utf-8')
@@ -41,7 +38,7 @@ const unprotectedRoutes = [
 ]
 unprotectedRoutes.forEach(unprotectedRoute => {
   test('All routes should return 200', t => {
-    request(app)
+    request('http://homesafefac.herokuapp.com')
       .get(`${unprotectedRoute}`)
       .expect(200)
       .expect('Content-Type', 'text/html; charset=utf-8')
