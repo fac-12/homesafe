@@ -5,6 +5,8 @@ By Fatimat, Dragomir, Kitty and Sophie.
 
 A web app to allow parents to notify school if someone other than the regular guardian will be picking up the child from school.
 
+![](https://i.imgur.com/n4E0oxI.gif)
+
 ## The challenge HomeSafe tackles
 Primary schools in the London area regularly have no specific way to ensure a child is being picked up by the correct guardian. Many schools have a call-in system whereby the parent will notify the school by calling in. This current system leaves the school with no way of tracking this information, or safely ensuring that the child is being picked up by the correct guardian.
 
